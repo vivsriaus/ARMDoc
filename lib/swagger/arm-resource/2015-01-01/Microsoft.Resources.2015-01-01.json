@@ -1,0 +1,3109 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Azure Resource Manager API",
+    "description": "The Azure Resource Manager management API",
+    "version": "2015-01-01"
+  },
+  "host": "management.azure.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "deployment",
+      "description": "A deployment represents a durable, goal seeking execution of an Azure Resource Manager template file."
+    },
+    {
+      "name": "location",
+      "description": "An Azure location which the subscription has access to. Note: this is not the same as a resource location since not all resources can be created in all locations. I.e. A subscription may have access to a location but a resource provider may not be enabled for that region."
+    },
+    {
+      "name": "operationResult",
+      "description": "An Azure operation result which tracks the progress of a long running operation."
+    },
+    {
+      "name": "resource",
+      "description": "A resource such as a web app or a virtual machine."
+    },
+    {
+      "name": "resourceGroup",
+      "description": "A resource group represents a group of co-related resources that share lifetime and dependencies. Resource groups can contain resources that span locations. Deployments are orchestrated inside a resource group."
+    },
+    {
+      "name": "resourceProvider",
+      "description": "A resource providers in Azure, the resources it supports, the locations that resources may be deployed to and the API versions the resource API require."
+    },
+    {
+      "name": "subscription",
+      "description": "A resource group represents a group of co-related resources that share lifetime and dependencies. Resource groups can contain resources that span locations. Deployments are orchestrated inside a resource group."
+    },
+    {
+      "name": "tag",
+      "description": "A name/value pair that can be used to categorize and query different resources in a resource group."
+    },
+    {
+      "name": "template",
+      "description": "An Azure Resource Manager template file which is a declarative representation of resources in a resource group."
+    },
+    {
+      "name": "tenant",
+      "description": "An Azure Active Directory tenant to which a user or subscription belongs."
+    }
+  ],
+  "paths": {
+    "/providers": {
+      "parameters": [
+        {
+          "name": "$expand",
+          "description": "Expands certain properties of the provider. Supported values are: metadata, resourceTypes/aliases",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of resources providers in the Azure.",
+        "description": "Gets the collection of resources providers in the Azure.",
+        "operationId": "getResourceProviders",
+        "tags": [
+          "resourceProvider"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the resource providers.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of resource providers returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/resourceProvider"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.Resources/checkResourceName": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/apiVersion"
+        },
+        {
+          "name": "checkResourceNameParameters",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/checkResourceNameParameters"
+          },
+          "description": "The check resource name request."
+        }
+      ],
+      "post": {
+        "summary": "Checks the validity of a resource name.",
+        "description": "Checks the validity of a resource name.",
+        "operationId": "checkResourceName",
+        "tags": [
+          "resource"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource name check was completed - the 'status' property will contain information about whether the name checked is allowed or not.",
+            "schema": {
+              "$ref": "#/definitions/checkResourceNameResponse"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/providers/{resourceProviderNamespace}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceProviderNamespace"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds a resource provider with the namespace specified.",
+        "description": "Finds a resource provider with the namespace specified.",
+        "operationId": "findResourceProvider",
+        "tags": [
+          "resourceProvider"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource provider.",
+            "schema": {
+              "$ref": "#/definitions/resourceProvider"
+            }
+
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/resources": {
+      "parameters": [
+        {
+          "name": "$filter",
+          "description": "Specifies the subscriptions to query for resources e.g.: subscriptionId eq '<subId1>' or subscriptionId eq '<subId2>",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "$expand",
+          "description": "Expands certain properties of the resource. Supported values are: changedTime, createdTime",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of resources in the user's subscriptions.",
+        "description": "Gets the collection of resources in the user's subscriptions.",
+        "operationId": "getResources",
+        "tags": [
+          "resource"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the resources.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of resources returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/resourceProvider"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of subscriptions the user has access to.",
+        "description": "Gets the collection of subscriptions the user has access to.",
+        "operationId": "getSubscriptions",
+        "tags": [
+          "subscription"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the subscriptions.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of subscriptions returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/subscription"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds a subscription with the subscription Id specified.",
+        "description": "Finds a subscription with the subscription Id specified.",
+        "operationId": "findSubscription",
+        "tags": [
+          "subscription"
+        ],
+        "responses": {
+          "200": {
+            "description": "The subscription.",
+            "schema": {
+              "$ref": "#/definitions/subscription"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The subscription was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/locations": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of locations which can be used by a subscription.",
+        "description": "Gets the collection of locations which can be used by a subscription. Note that this is not the same as the list of locations a subscription can deploy a resource deployed to. For the list of locations that a subscription can deploy a resource to, consult the resource providers api instead.",
+        "operationId": "getLocations",
+        "tags": [
+          "location"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the locations which can be used by a subscription.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of the locations returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/location"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/operationResults/{operationId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/operationId"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds an operation result operation Id specified.",
+        "description": "Finds an operation result operation Id specified. Operations results track the progress of long running operations.",
+        "operationId": "findOperationResult",
+        "tags": [
+          "operationResult"
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is still in progress.",
+            "schema": {
+              "$ref": "#/definitions/operationResult"
+            },
+            "headers": {
+              "Location": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The duration after which the next update to status will be available.",
+                "type": "string"
+              }
+            }
+          },
+          "200": {
+            "description": "The operation completed successfully."
+          },
+          "201": {
+            "description": "The operation completed successfully."
+
+          },
+          "204": {
+            "description": "The operation completed successfully."
+          },
+          "default": {
+            "description": "The request was malformed or failed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "name": "$expand",
+          "description": "Expands certain properties of the provider. Supported values are: metadata, resourceTypes/aliases",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of resources providers which a subscription has access to.",
+        "description": "Gets the collection of resources providers which a subscription has access to.",
+        "operationId": "getSubscriptionResourceProviders",
+        "tags": [
+          "resourceProvider"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the resource providers.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of resource providers returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/resourceProvider"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceProviderNamespace"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds a resource provider with the namespace specified.",
+        "description": "Finds a resource provider with the namespace specified which the subscription has access to.",
+        "operationId": "findSubscriptionResourceProvider",
+        "tags": [
+          "resourceProvider"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource provider.",
+            "schema": {
+              "$ref": "#/definitions/resourceProvider"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/register": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceProviderNamespace"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "post": {
+        "summary": "Registers a resource provider with the namespace specified on a subscription.",
+        "description": "Registers a resource provider with the namespace specified on a subscription. This call can also be used to update the subscription registration after a subscription has been registered to a feature.",
+        "operationId": "registerResourceProvider",
+        "tags": [
+          "resourceProvider"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource provider.",
+            "schema": {
+              "$ref": "#/definitions/resourceProvider"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource provider was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/unregister": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceProviderNamespace"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "post": {
+        "summary": "Unregisters a resource provider with the namespace specified on a subscription.",
+        "description": "Unregisters a resource provider with the namespace specified on a subscription. This call can also be used to update the subscription registration after a subscription has been registered to a feature.",
+        "operationId": "unregisterResourceProvider",
+        "tags": [
+          "resourceProvider"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource provider.",
+            "schema": {
+              "$ref": "#/definitions/resourceProvider"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource provider was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The resource provider was not registered.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resources": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "name": "$filter",
+          "description": "Specifies filters that can be used in the query. Supported filter keys are: 'resourceType', 'tagname' and 'tagvalue'. The 'tagname' filter can be applied with 'startsWith' - e.g. $filter=startsWitk(tagname, 'foo') All other filter keys must be applied using the 'eq' operator.",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "$expand",
+          "description": "Expands certain properties of the resource. Supported values are: changedTime, createdTime",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of resources in the user's subscription.",
+        "description": "Gets the collection of resources in the user's subscription.",
+        "operationId": "getSubscriptionResources",
+        "tags": [
+          "resource"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the resources.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of resources returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/resource"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/top"
+        },
+        {
+          "name": "$filter",
+          "description": "Allows resource groups to be filtered by tag names and/or values. e.g.: tagname eq 'foo' and  tagvalue eq 'bar",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "$expand",
+          "description": "Expands certain properties of the resource group. Supported values are: changedTime, createdTime",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/skipToken"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of resource groups contained in the subscription.",
+        "description": "Gets the collection of resource groups contained in the subscription.",
+        "operationId": "getResourceGroups",
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the resource groups.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of resource groups returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/resourceGroup"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds a resource group in the subscription with the name specified.",
+        "description": "Finds a resource group in the subscription with the name specified.",
+        "operationId": "findResourceGroup",
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource group.",
+            "schema": {
+              "$ref": "#/definitions/resourceGroup"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "head": {
+        "summary": "Checks if a resource group exists in the subscription.",
+        "description": "Checks if a resource group exists in the subscription.",
+        "operationId": "headResourceGroup",
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "204": {
+            "description": "The resource group exists."
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request was malformed or failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a resource group and all the resources and deployments contained within it.",
+        "description": "Deletes a resource group and all the resources and deployments contained within it. This request will fail if the resource group is currently being updated.",
+        "operationId": "deleteResourceGroup",
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "202": {
+            "description": "The request has been accepted and will complete asynchronously. It is still possible for the request to fail ultimately.",
+            "headers": {
+              "Location": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The duration after which the next update to status will be available.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "The resource group was not found."
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The resource group is currently being updated and cannot be deleted.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Creates a resource group in the subscription.",
+        "description": "Creates a resource group in the subscription.",
+        "operationId": "putResourceGroup",
+        "parameters": [
+          {
+            "name": "resourceGroup",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resourceGroup"
+            },
+            "description": "The resource group."
+          }
+        ],
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "200": {
+            "description": "An existing resource group was overwritten.",
+            "schema": {
+              "$ref": "#/definitions/resourceGroup"
+            }
+          },
+          "201": {
+            "description": "A new resource group was created.",
+            "schema": {
+              "$ref": "#/definitions/resourceGroup"
+            }
+          },
+          "400": {
+            "description": "The request was malformed or failed validation.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group or subscription were not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The resource group could not be updated because of a conflict (e.g. the resource group was being updated, the resource group quota has been exceeded, the resource group is locked, etc.)",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates the tags on a resource group.",
+        "description": "Updates the tags on a resource group if the resource group is not locked or being updated/deleted.",
+        "operationId": "patchResourceGroup",
+        "parameters": [
+          {
+            "name": "resourceGroup",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resourceGroup"
+            },
+            "description": "The resource group."
+          }
+        ],
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "200": {
+            "description": "An existing resource group was overwritten.",
+            "schema": {
+              "$ref": "#/definitions/resourceGroup"
+            }
+          },
+          "400": {
+            "description": "The request was malformed or failed validation.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group or subscription were not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The resource group could not be updated because of a conflict (e.g. the resource group was being updated, the resource group is locked, etc.)",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/resources": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "name": "$filter",
+          "description": "Specifies filters that can be used in the query. Supported filter keys are: 'resourceType', 'tagname' and 'tagvalue'. All filter keys must be applied using the 'eq' operator.",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "$expand",
+          "description": "Expands certain properties of the resource. Supported values are: changedTime, createdTime",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of resources in the user's subscription.",
+        "description": "Gets the collection of resources in the user's subscription.",
+        "operationId": "getResourceGroupResources",
+        "tags": [
+          "resource"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the resources.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of resources returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/resource"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/moveResources": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        },
+        {
+          "name": "moveResourceGroupResourcesParameters",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/moveResourceGroupResourcesParameters"
+          },
+          "description": "The move resources request body."
+        }
+      ],
+      "post": {
+        "summary": "Moves resources from one resource group to another.",
+        "description": "Moves resources from one resource group to another. This operation can be used to move resources across subscriptions so long as the user performing the operation has access to both subscriptions. Resources that are moved must be top-level resource group resources (e.g. Microsoft.Sql/servers not Microsoft.Sql/servers/databases.) This operation acquires exclusive access to both source and target resource groups for the duration of the move.",
+        "operationId": "moveResourceGroupResourcesParameters",
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "202": {
+            "description": "The move request has been accepted and will complete asynchronously. It is still possible for the request to fail ultimately.",
+            "headers": {
+              "Location": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The duration after which the next update to status will be available.",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "The request failed validation (e.g. because one or more resources don't support being moved, the target subscription was not in the 'enabled' state, etc.) or was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The resources cannot be moved due to a conflict (e.g. either the source or destination resource groups are locked or are being updated, the resources group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/validateMoveResources": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        },
+        {
+          "name": "moveResourceGroupResourcesParameters",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/moveResourceGroupResourcesParameters"
+          },
+          "description": "The move resources request body."
+        }
+      ],
+      "post": {
+        "summary": "Validates that moving resources from one resource group to another is possible.",
+        "description": "Validates that moving resources from one resource group to another is possible. This operation can be used to move resources across subscriptions so long as the user performing the operation has access to both subscriptions. Resources that are moved must be top-level resource group resources (e.g. Microsoft.Sql/servers not Microsoft.Sql/servers/databases.)",
+        "operationId": "validateMoveResourceGroupResources",
+        "tags": [
+          "resourceGroup"
+        ],
+        "responses": {
+          "202": {
+            "description": "The move validation request has been accepted and will complete asynchronously. It is still possible for the request to fail ultimately.",
+            "headers": {
+              "Location": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The duration after which the next update to status will be available.",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "The request failed validation (e.g. because one or more resources don't support being moved, the target subscription was not in the 'enabled' state, etc.) or was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The resources cannot be moved due to a conflict (e.g. either the source or destination resource groups are locked or are being updated, the resources group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/top"
+        },
+        {
+          "name": "$filter",
+          "description": "Filters the deployment by the deployment state (e.g. provisioningState eq 'Accepted') - the values provided must match the values of the provisioningState property on the deployment.",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/skipToken"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of all deployments in the resource group.",
+        "description": "Gets the collection of all deployments in the resource group.",
+        "operationId": "GetDeployments",
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the deployment created in the resource group.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of deployment returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/deployment"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/deploymentName"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds a deployment in the resource group with the deployment name specified.",
+        "description": "Finds a deployment in the resource group with the deployment name specified.",
+        "operationId": "findDeployment",
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "200": {
+            "description": "The deployment.",
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The deployment was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "head": {
+        "summary": "Checks if a deployment exists in the resource group with the deployment name specified.",
+        "description": "Checks if a deployment exists in the resource group with the deployment name specified.",
+        "operationId": "headDeployment",
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "204": {
+            "description": "The deployment exists."
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The deployment was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request was malformed or failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a deployment in the resource group with the deployment name specified.",
+        "description": "Deletes a deployment in the resource group with the deployment name specified. This request will fail if the deployment is currently active.",
+        "operationId": "deleteDeployment",
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "202": {
+            "description": "The request has been accepted and will complete asynchronously. It is still possible for the request to fail ultimately.",
+            "headers": {
+              "Location": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The duration after which the next update to status will be available.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "The deployment was not found."
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The deployment is currently executing and cannot be deleted.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Validates and creates a deployment in the resource group with the deployment name specified.",
+        "description": "Validates and creates a deployment in the resource group with the deployment name specified. The request will validate the deployment object synchronously then deploy the resources contained within the supplied template in an asynchronous manner.",
+        "operationId": "putDeployment",
+        "parameters": [
+          {
+            "name": "deployment",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            },
+            "description": "The deployment."
+          }
+        ],
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "200": {
+            "description": "An existing deployment was overwritten.",
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the deployment operations.",
+                "type": "string"
+              }
+            }
+          },
+          "201": {
+            "description": "A new deployment was created.",
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the deployment operations.",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed or failed validation.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group or subscription were not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The deployment could not be accepted because of a conflict (e.g. the deployment quota is exceeded, there already is an active deployment with the same name, the resource group is locked, etc.)",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}/cancel": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/deploymentName"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "post": {
+        "summary": "Cancels a deployment in the resource group with the deployment name specified.",
+        "description": "Cancels a deployment in the resource group with the deployment name specified if the deployment is currently active.",
+        "operationId": "cancelDeployment",
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "204": {
+            "description": "The deployment was found and it's state updated to 'Canceled'. Any operations currently executing may continue to run but new operations will not be started."
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The deployment or resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The deployment is not active and cannot be canceled.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}/validate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/deploymentName"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "post": {
+        "summary": "Validates a deployment in the resource group with the deployment name specified.",
+        "description": "Validates a deployment in the resource group with the deployment name specified.",
+        "operationId": "validateDeployment",
+        "tags": [
+          "deployment",
+          "template"
+        ],
+        "responses": {
+          "200": {
+            "description": "The deployment is valid.",
+            "schema": {
+              "$ref": "#/definitions/deployment"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the deployment operations.",
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed or failed validation.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group or subscription were not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The deployment could not be accepted because of a conflict (e.g. the deployment quota is exceeded, there already is an active deployment with the same name, the resource group is locked, etc.)",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}/operations": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/deploymentName"
+        },
+        {
+          "$ref": "#/parameters/top"
+        },
+        {
+          "name": "$filter",
+          "description": "Filters the operation result by the provisioning state of the operation (e.g. provisioningState eq 'Accepted') - the values provided must match the values of the provisioningState property on the operation.",
+          "in": "query",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/skipToken"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of all operations for a deployment.",
+        "description": "Gets the collection of all operation for a deployment.",
+        "operationId": "GetDeploymentOperations",
+        "tags": [
+          "deployment",
+          "template",
+          "operationResult"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the operations for the deployment.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of operations returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/operationResult"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}/operations/{operationId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/resourceGroupName"
+        },
+        {
+          "$ref": "#/parameters/deploymentName"
+        },
+        {
+          "$ref": "#/parameters/operationId"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Finds an operation result operation Id specified.",
+        "description": "Finds an operation result operation Id specified. Operations results track the progress of long running operations.",
+        "operationId": "findDeploymentOperationResult",
+        "tags": [
+          "operationResult"
+        ],
+        "responses": {
+          "202": {
+            "description": "The operation is still in progress.",
+            "schema": {
+              "$ref": "#/definitions/operationResult"
+            },
+            "headers": {
+              "Location": {
+                "description": "The URL that can be queried via HTTP GET to obtain the status of the operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The duration after which the next update to status will be available.",
+                "type": "string"
+              }
+            }
+          },
+          "200": {
+            "description": "The operation completed successfully."
+          },
+          "201": {
+            "description": "The operation completed successfully."
+
+          },
+          "204": {
+            "description": "The operation completed successfully."
+
+          },
+          "default": {
+            "description": "The request was malformed or failed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/tagNames": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of tag names that are defined on the subscription.",
+        "description": "Gets the collection of tag names that are defined on the subscription. The returned type contains information about the tag values and counts.",
+        "operationId": "GetSubscriptionTagNames",
+        "tags": [
+          "tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of tag names.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of tag names returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/tagValue"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The resource group was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/tagNames/{tagName}/tagValues/{tagValue}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/subscriptionId"
+        },
+        {
+          "name": "tagName",
+          "description": "The name of the tag",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "tagValue",
+          "description": "The value of the tag",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "delete": {
+        "summary": "Deletes a subscription tag.",
+        "description": "Deletes a subscription tag.",
+        "operationId": "deleteSubscriptionTag",
+        "tags": [
+          "tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "The subscription tag was successfully deleted."
+          },
+          "204": {
+            "description": "The subscription tag  was not found."
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The subscription tag name was not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The subscription tag cannot be deleted because it is associated with one or more resources.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Creates a subscription tag.",
+        "description": "Creates a subscription tag.",
+        "operationId": "putSubscriptionTag",
+        "tags": [
+          "tag"
+        ],
+        "responses": {
+          "200": {
+            "description": "An existing subscription tag was overwritten.",
+            "schema": {
+              "$ref": "#/definitions/tagValue"
+            }
+          },
+          "201": {
+            "description": "A new subscription tag was created.",
+            "schema": {
+              "$ref": "#/definitions/tagValue"
+            }
+          },
+          "400": {
+            "description": "The request was malformed or failed validation.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "404": {
+            "description": "The tag name or subscription were not found.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "409": {
+            "description": "The tag could not be updated because of a conflict (e.g. the tag quota has been exceeded, the subscription is locked, etc.)",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    },
+    "/tenants": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/apiVersion"
+        }
+      ],
+      "get": {
+        "summary": "Gets the collection of tenants the user has access to.",
+        "description": "Gets the collection of tenants the user has access to.",
+        "operationId": "getTenants",
+        "tags": [
+          "tenant"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated array of the tenants.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The collection of tenants returned.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/tenant"
+                  },
+                  "readOnly": true
+                },
+                "nextLink": {
+                  "description": "The URL to get the next set of results.",
+                  "type": "string",
+                  "readOnly": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was malformed.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          },
+          "default": {
+            "description": "The request failed unexpectedly.",
+            "schema": {
+              "$ref": "#/definitions/errorResponseMessage"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "checkResourceNameParameters": {
+      "type": "object",
+      "description": "The check resource name parameters.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the resource."
+        },
+        "type": {
+          "type": "string",
+          "description": "The fully qualified resource type: e.g. 'Microsoft.Compute/virtualMachines"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ]
+    },
+    "checkResourceNameResponse": {
+      "type": "object",
+      "description": "The check resource name parameters.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the resource.",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "description": "The fully qualified resource type: e.g. 'Microsoft.Compute/virtualMachines",
+          "readOnly": true
+        },
+        "status": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The result of the check resource name operation.",
+          "enum": [
+            "Allowed",
+            "Reserved",
+            "Profane"
+          ],
+          "readOnly": true
+        },
+        "message": {
+          "description": "If the status of is not 'Allowed' contains a message describing the reason the name is not allowed.",
+          "$ref": "#/definitions/errorResponseMessage",
+          "readOnly": true
+        }
+      }
+    },
+    "resourceGroup": {
+      "type": "object",
+      "description": "A resource group represents a group of co-related resources that share lifetime and dependencies. Resource groups can contain resources that span locations. Deployments are orchestrated inside a resource group.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the resource group.",
+          "readOnly": true
+        },
+        "location": {
+          "type": "string",
+          "description": "The name of the deployment."
+        },
+        "createdTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time the resource group was created.",
+          "readOnly": true
+        },
+        "changedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time the resource group was last changed.",
+          "readOnly": true
+        },
+        "tags": {
+          "type": "object",
+          "description": "The tags on the resource group.",
+          "additionalProperties": {
+            "type": "string",
+            "description": "The tag."
+          }
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "provisioningState": {
+              "type": "string",
+              "description": "The resource group provisioning state.",
+              "readOnly": true
+            }
+          }
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "description": "A deployment represents a durable, goal seeking execution of an Azure Resource Manager template file.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the deployment.",
+          "readOnly": true
+        },
+        "properties": {
+          "$ref": "#/definitions/deploymentProperties"
+        }
+      }
+    },
+    "deploymentProperties": {
+      "type": "object",
+      "description": "The properties of a deployment.",
+      "properties": {
+        "provisioningState": {
+          "type": "string",
+          "description": "The deployment provisioning state.",
+          "readOnly": true
+        },
+        "correlationId": {
+          "type": "string",
+          "description": "The deployment correlation Id.",
+          "readOnly": true
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The deployment time stamp.",
+          "readOnly": true
+        },
+        "duration": {
+          "type": "string",
+          "format": "duration",
+          "description": "The deployment duration.",
+          "readOnly": true
+        },
+        "outputs": {
+          "type": "object",
+          "description": "The deployment output, as a string dictionary of deployment parameters. Only available after the deployment has completed successfully.",
+          "readOnly": true,
+          "additionalProperties": {
+            "$ref": "#/definitions/deploymentParameterValue"
+          }
+        },
+        "outputResources": {
+          "type": "array",
+          "description": "The resources that were provisioned as part of this deployment. Only available after the deployment has completed successfully.",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/resourceProxyDefinition"
+          }
+        },
+        "providers": {
+          "type": "array",
+          "description": "The array of resource providers that participate in this deployment.",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/resourceProvider"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "description": "The array of dependencies as defined in the deployment.",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/deploymentDependency"
+          }
+        },
+        "parameters": {
+          "type": "object",
+          "description": "The deployment parameters - use either this or parametersLink but not both.",
+          "additionalProperties": {
+            "$ref": "#/definitions/deploymentParameterValue"
+          }
+        },
+        "parametersLink": {
+          "description": "The link to the parameters file - use either this or parameters but not both.",
+          "$ref": "#/definitions/deploymentContentLink"
+        },
+        "template": {
+          "description": "The template - use either this or templateLink but not both.",
+          "$ref": "#/definitions/template"
+        },
+        "templateLink": {
+          "description": "The link to the template file - use either this or template but not both.",
+          "$ref": "#/definitions/deploymentContentLink"
+        },
+        "mode": {
+          "$ref": "#/definitions/deploymentMode"
+        }
+      },
+      "required": [
+        "mode"
+      ]
+    },
+    "deploymentMode": {
+      "type": "string",
+      "enum": [
+        "Incremental",
+        "Complete"
+      ],
+      "description": "The deployment mode."
+    },
+    "moveResourceGroupResourcesParameters": {
+      "type": "object",
+      "description": "An object that contains the request body for requests to move or validate resource moves.",
+      "properties": {
+        "targetResourceGroup": {
+          "type": "string",
+          "description": "The fully qualified Id of the resource group - i.e. /subscriptions/{subId}/resourceGroups/{rgName}."
+        },
+        "resources": {
+          "type": "array",
+          "description": "An array of fully qualified Ids of the resources to move.",
+          "items": {
+            "type": "string",
+            "description": "The fully qualified Id of a resource to move - i.e. /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Sql/servers/{serverName}. Note that the resource group name 'rgName' must match the name of the resource group that the operation is being called on."
+          }
+        }
+      },
+      "required": [
+        "targetResourceGroup",
+        "resources"
+      ]
+    },
+    "resourceProxyDefinition": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/resource"
+        },
+        {
+          "type": "object",
+          "description": "The resource proxy definition",
+          "properties": {
+            "resoruces": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/resourceProxyDefinition"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "deploymentDependency": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/deploymentResourceReference"
+        },
+        {
+          "type": "object",
+          "description": "Describes a dependency between a resource and the other resources referenced in the deployment.",
+          "properties": {
+            "dependsOn": {
+              "type": "array",
+              "description": "The other resources that this resource references.",
+              "items": {
+                "$ref": "#/definitions/deploymentResourceReference"
+              },
+              "readOnly": true
+            }
+          }
+        }
+      ]
+    },
+    "deploymentResourceReference": {
+      "type": "object",
+      "description": "Defines a reference to a deployment dependency.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the resource.",
+          "readOnly": true
+        },
+        "resourceType": {
+          "type": "string",
+          "description": "The type of the resource.",
+          "readOnly": true
+        },
+        "resourceName": {
+          "type": "string",
+          "description": "The name of the resource.",
+          "readOnly": true
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "The api-version used in calls to the resource provider.",
+          "readOnly": true
+        },
+        "actionName": {
+          "type": "string",
+          "description": "The name of the action taken on the resource.",
+          "readOnly": true
+        }
+      }
+    },
+    "deploymentParameterValue": {
+      "type": "object",
+      "description": "A deployment parameter value",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/templateParameterType"
+        },
+        "value": {
+          "type": "object",
+          "description": "The value of the parameter."
+        },
+        "reference": {
+          "$ref": "#/definitions/keyVaultParameterReference"
+        }
+      }
+    },
+    "keyVaultParameterReference": {
+      "type": "object",
+      "description": "A KeyVault parameter reference",
+      "properties": {
+        "keyVault": {
+          "type": "object",
+          "description": "A reference to the KeyVault by Id.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The Id of the KeyVault to fetch the secret from. e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName} - Note: the user submitting the deployment must have access to the vault for the call to succeed."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "secretName": {
+          "type": "string",
+          "description": "The name of the secret in KeyVault."
+        },
+        "secretVersion": {
+          "type": "string",
+          "description": "The version of the secret in KeyVault - if the version doesn't match fetching the secret fails."
+        }
+      },
+      "required": [
+        "keyVault",
+        "secretName"
+      ]
+    },
+    "deploymentContentLink": {
+      "type": "object",
+      "description": "Describes a link that can be used by the Azure Resource Manager runtime to download deployment artifacts (template files or parameter files.)",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "The uri to download the deployment artifacts from."
+        },
+        "contentVersion": {
+          "type": "string",
+          "description": "The content version - compared with the content version at the uri and if they don't match the deployment is failed. Used to help with version control scenarios."
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Metadata about the content."
+        }
+      },
+      "required": [
+        "uri"
+      ]
+    },
+    "resourceProvider": {
+      "type": "object",
+      "description": "Describes the resource provider, the resource types and api-versions that it has and the locations that you can deploy its resources to.",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "description": "The resource provider namespace.",
+          "readOnly": true
+        },
+        "registrationState": {
+          "type": "string",
+          "enum": [
+            "Registering",
+            "Registered",
+            "Unregistering",
+            "Unregistered",
+            "NotRegistered"
+          ],
+          "description": "The state of the provider for the subscription.",
+          "readOnly": true
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Metadata about the resource provider.",
+          "readOnly": true
+        },
+        "authorization": {
+          "$ref": "#/definitions/resourceProviderAuthorization"
+        },
+        "resourceTypes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "The resource type",
+            "properties": {
+              "resourceType": {
+                "type": "string",
+                "description": "The resource type name.",
+                "readOnly": true
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "The invariant name of a location in which you can create this resource."
+                },
+                "description": "The array of locations where this resource can be created, scoped to the locations where the caller is permitted to create the resource.",
+                "readOnly": true
+              },
+              "apiversions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "An api-version that can be used when making management calls on the resource."
+                },
+                "description": "The array of api-versions that can be used when making management calls on the resource.",
+                "readOnly": true
+              },
+              "metadata": {
+                "type": "object",
+                "description": "Metadata about the resource.",
+                "readOnly": true
+              }
+            },
+            "description": "The resource types that the resource provider has. Used to determine which resources this provider can create and which locations they can be created in.",
+            "readOnly": true
+          }
+        }
+
+      }
+    },
+    "resourceProviderAuthorization": {
+      "type": "object",
+      "description": "The resource authorization - this includes information on the application Id of the resource provider and the role definition Id used for service to service auth.",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "description": "The resource provider's application Id.",
+          "readOnly": true
+        },
+        "roleDefinitionId": {
+          "type": "string",
+          "description": "The role definition Id used to grant the resource provider's service principal access to perform management operations on a set of scopes.",
+          "readOnly": true
+        }
+      },
+      "readOnly": true
+    },
+    "template": {
+      "type": "object",
+      "description": "An Azure Resource Manager Template which is a declarative representation of the goal state of the resources in a resource group.",
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "format": "uri",
+          "description": "The $schema that this template follows - e.g. 'http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"
+        },
+        "contentVersion": {
+          "type": "string",
+          "description": "A string that describes the content version of the template - e.g. '1.0.0.0"
+        },
+        "parameters": {
+          "type": "object",
+          "description": "The template input parameters.",
+          "additionalProperties": {
+            "$ref": "#/definitions/templateInputParameter"
+          }
+        },
+        "resources": {
+          "type": "array",
+          "description": "The resources that will be deployed as part of the template deployment.",
+          "items": {
+            "$ref": "#/definitions/templateResource"
+          }
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "description": "The template variable."
+          },
+          "description": "The template variables."
+        },
+        "outputs": {
+          "type": "object",
+          "description": "The template outputs.",
+          "additionalProperties": {
+            "$ref": "#/definitions/templateOutputParameter"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "contentVersion",
+        "resources"
+      ]
+    },
+    "templateResource": {
+      "type": "object",
+      "description": "A resource which is deployed as part of a template deployment.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The resource Id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The resource name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The resource type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The resource location."
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "The tag value"
+          },
+          "description": "The resource tags."
+        },
+        "plan": {
+          "$ref": "#/definitions/plan"
+        },
+        "sku": {
+          "$ref": "#/definitions/sku"
+        },
+        "kind": {
+          "type": "string",
+          "description": "The resource kind."
+        },
+        "properties": {
+          "type": "object",
+          "description": "The resource properties."
+        },
+        "comments": {
+          "type": "string",
+          "description": "Comments about the resource."
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Metadata about the resource."
+        },
+        "apiVersion": {
+          "type": "string",
+          "description": "The api-version to use when provisioning the resource."
+        },
+        "dependsOn": {
+          "type": "array",
+          "description": "An array of nested resources.",
+          "items": {
+            "descrption": "An array of other resources that this resource depends. Used to determine provisioning order.",
+            "type": "string"
+          }
+        },
+        "resources": {
+          "type": "array",
+          "description": "An array of nested resources.",
+          "items": {
+            "$ref": "#/definitions/templateResource"
+          }
+        },
+        "templateResourceCopy": {
+          "$ref": "#/definitions/templateResourceCopy"
+        }
+      },
+      "required": [
+        "type",
+        "name",
+        "apiVersion"
+      ]
+    },
+    "templateResourceCopy": {
+      "type": "object",
+      "description": "Used to determine how many copies of a template resource to make.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the copy."
+        },
+        "count": {
+          "type": "object",
+          "description": "A template expression that should evaluate to an integer."
+        }
+      }
+    },
+    "templateOutputParameter": {
+      "type": "object",
+      "description": "A template output parameter.",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/templateParameterType"
+        },
+        "value": {
+          "type": "object",
+          "description": "The parameter value"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "templateInputParameter": {
+      "type": "object",
+      "description": "A template input parameter.",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/templateParameterType"
+        },
+        "value": {
+          "type": "object",
+          "description": "The parameter value."
+        },
+        "defaultValue": {
+          "type": "object",
+          "description": "The default parameter value."
+        },
+        "allowedValues": {
+          "type": "array",
+          "description": "The allowed parameter values.",
+          "items": {
+            "type": "object",
+            "description": "An allowed value"
+          }
+        },
+        "minValue": {
+          "type": "integer",
+          "format": "int64?",
+          "description": "The minimum value the parameter can have."
+        },
+        "maxValue": {
+          "type": "integer",
+          "format": "int64?",
+          "description": "The maximum value the parameter can have."
+        },
+        "minLength": {
+          "type": "integer",
+          "format": "int64?",
+          "description": "The minimum length a string type or array parameter can have."
+        },
+        "maxLength": {
+          "type": "integer",
+          "format": "int64?",
+          "description": "The maximum length a string type or array parameter can have."
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "tenant": {
+      "type": "object",
+      "description": "A tenant.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The fully qualified tenant Id - i.e. /tenants/{tenantId}.",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant Id.",
+          "readOnly": true
+        }
+      }
+    },
+    "subscription": {
+      "type": "object",
+      "description": "A subscription.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The fully qualified subscription Id - i.e. /subscriptions/{subscriptionId}.",
+          "readOnly": true
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "The subscription Id.",
+          "readOnly": true
+        },
+        "state": {
+          "type": "string",
+          "description": "The subscription state.",
+          "enum": [
+            "Enabled",
+            "Warned",
+            "PastDue",
+            "Disabled"
+          ],
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The subscription display name.",
+          "readOnly": true
+        },
+        "subscriptionPolicies": {
+          "$ref": "#/definitions/subscriptionPolicy"
+        }
+      }
+    },
+    "subscriptionPolicy": {
+      "type": "object",
+      "description": "Represents the Azure location and quota policies that are applicable to a subscription.",
+      "readOnly": true,
+      "properties": {
+        "locationPlacementId": {
+          "type": "string",
+          "description": "The subscription location placement Id - this, along with the quota Id controls which Azure location a subscription can see along with which resource providers/types/skus/plans the subscription has access to.",
+          "readOnly": true
+        },
+        "quotaId": {
+          "type": "string",
+          "description": "The subscription quota Id - this, along with the location placement Id controls which Azure location a subscription can see along with which resource providers/types/skus/plans the subscription has access to.",
+          "readOnly": true
+        }
+      }
+    },
+    "templateParameterType": {
+      "type": "string",
+      "description": "The type of the parameter.",
+      "enum": [
+        "string",
+        "secureString",
+        "int",
+        "bool",
+        "array",
+        "object",
+        "secureObject"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "description": "Represents a location in which an Azure data center which a subscription has access to exists. Note: not all resources are available in all locations.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The language invariant location name.",
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The localized location name.",
+          "readOnly": true
+        },
+        "longitude": {
+          "type": "string",
+          "description": "The longitude of the location.",
+          "readOnly": true
+        },
+        "latitude": {
+          "type": "string",
+          "description": "The latitude of the location.",
+          "readOnly": true
+        }
+      }
+    },
+    "operationResult": {
+      "type": "object",
+      "description": "The result of an asynchronous long running operation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The operation result's fully qualified Id.",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "The operation result's name.",
+          "readOnly": true
+        },
+        "status": {
+          "type": "string",
+          "description": "The operation result's status.",
+          "readOnly": true
+        },
+        "operationId": {
+          "type": "string",
+          "description": "The operation result's name.",
+          "readOnly": true
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The operation's start time.",
+          "readOnly": true
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The operation's end time.",
+          "readOnly": true
+        },
+        "percentComplete": {
+          "type": "number",
+          "format": "double",
+          "description": "The operation's end time.",
+          "readOnly": true
+        },
+        "error": {
+          "$ref": "#/definitions/errorInfo",
+          "description": "Contains information about the errors that may have occurred, if any."
+        },
+        "properties": {
+          "type": "object",
+          "description": "The operation result's properties.",
+          "readOnly": true
+        }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "description": "The resource plan.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The plan name."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher name."
+        },
+        "product": {
+          "type": "string",
+          "description": "The product code."
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "The promotion code."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "sku": {
+      "type": "object",
+      "description": "The resource sku.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The sku name."
+        },
+        "tier": {
+          "type": "string",
+          "description": "The sku tier."
+        },
+        "size": {
+          "type": "string",
+          "description": "The sku size."
+        },
+        "family": {
+          "type": "string",
+          "description": "The sku family."
+        },
+        "model": {
+          "type": "string",
+          "description": "The sku model."
+        },
+        "capacity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The sku capacity."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "resource": {
+      "type": "object",
+      "description": "A generic representation of an Azure resource.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The resource Id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The resource name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The resource type."
+        },
+        "location": {
+          "type": "string",
+          "description": "The resource location."
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "The tag value"
+          },
+          "description": "The resource tags."
+        },
+        "plan": {
+          "$ref": "#/definitions/plan"
+        },
+        "sku": {
+          "$ref": "#/definitions/sku"
+        },
+        "kind": {
+          "type": "string",
+          "description": "The resource kind."
+        },
+        "etag": {
+          "type": "string",
+          "description": "The resource kind."
+        },
+        "createdTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time the resource was created.",
+          "readOnly": true
+        },
+        "changedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time the resource was last changed.",
+          "readOnly": true
+        },
+        "properties": {
+          "type": "object",
+          "description": "The resource properties."
+        }
+      }
+    },
+    "tagValue": {
+      "type": "object",
+      "description": "An object that describes the tag name and some statistics about its usage in the subscription.",
+      "properties": {
+        "tagName": {
+          "type": "string",
+          "description": "The name of the tag.",
+          "readOnly": true
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "A tag value."
+          },
+          "description": "The values that are used for the tag name.",
+          "readOnly": true
+        },
+        "count": {
+          "type": "object",
+          "description": "Statistics on the usage of this tag name.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Total",
+                "Partial"
+              ],
+              "description": "The type of the count."
+            },
+            "value": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The count value."
+            }
+          },
+          "readOnly": true
+        },
+        "message": {
+          "description": "If the status of is not 'Allowed' contains a message describing the reason the name is not allowed.",
+          "$ref": "#/definitions/errorResponseMessage",
+          "readOnly": true
+        }
+      }
+    },
+    "errorResponseMessage": {
+      "type": "object",
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/errorInfo",
+          "description": "The error that occurred.",
+          "readOnly": true
+        }
+      }
+    },
+    "errorInfo": {
+      "type": "object",
+      "readOnly": true,
+      "description": "Contains information about the error and any nested errors that may have occurred.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "A string that describes the error that occurred in an invariant manner.",
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "description": "A string that describes the error that occurred in greater detail. This value may be localized.",
+          "readOnly": true
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "description": "A nested error",
+            "$ref": "#/definitions/errorInfo"
+          },
+          "description": "An array of errors that may contain nested errors with details about the failure.",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    }
+  },
+  "parameters": {
+    "apiVersion": {
+      "name": "api-version",
+      "description": "The API version.",
+      "in": "query",
+      "type": "string",
+      "required": true
+    },
+    "deploymentName": {
+      "name": "deploymentName",
+      "description": "The name of the deployment.",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "operationId": {
+      "name": "operationId",
+      "description": "The operation Id for a long running operation.",
+      "type": "string",
+      "in": "path",
+      "required": true
+    },
+    "resourceGroupName": {
+      "name": "resourceGroupName",
+      "description": "The name of the resource group.",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "resourceProviderNamespace": {
+      "name": "resourceProviderNamespace",
+      "description": "The namespace of the resource provider.",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "subscriptionId": {
+      "name": "subscriptionId",
+      "description": "The subscription Id.",
+      "type": "string",
+      "in": "path",
+      "required": true
+    },
+    "skipToken": {
+      "name": "$skiptoken",
+      "description": "The skip token - used to get the next page of results.",
+      "in": "query",
+      "type": "string",
+      "required": false
+    },
+    "top": {
+      "name": "$top",
+      "description": "Returns the top N records. If null is passed returns all records.",
+      "in": "query",
+      "type": "integer",
+      "format": "int32",
+      "required": false
+    }
+  }
+}
