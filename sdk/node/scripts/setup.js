@@ -22,7 +22,7 @@ var executeCmds = require('./executeCmds.js');
 var cmds = [];
 var sdkRootPath = path.join(__dirname, '..');
 
-console.log(sdkRootPath);
+console.log('the sdk path is: ' + sdkRootPath);
 
 eachService(function(serviceData, next) {
     var relpath = path.relative(sdkRootPath, serviceData.path);
