@@ -26,6 +26,7 @@ console.log('the sdk path is: ' + sdkRootPath);
 
 eachService(function(serviceData, next) {
     var relpath = path.relative(sdkRootPath, serviceData.path);
+	console.log('the service data is: ' + serviceData.packageJson.name);
     if(serviceData.packageJson.name === 'azure-common') {
       cmds.push({cmd: 'npm install', path: relpath });
       cmds.push({ cmd: 'npm link ' + relpath });
