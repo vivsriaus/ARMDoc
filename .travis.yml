@@ -8,6 +8,7 @@ matrix:
 # setup links to submodules
 before_install:
   - npm install -g npm@1.4.23
+  - cd sdk/node
   - npm run-script setup
   - npm install
   #- cd ..
