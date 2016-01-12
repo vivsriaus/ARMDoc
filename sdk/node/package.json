@@ -92,6 +92,7 @@
     "url": "http://github.com/Azure/azure-sdk-for-node/issues"
   },
   "scripts": {
+    "test": "grunt genDocs",
     "unit": "node scripts/unit.js testlist.txt",
     "setup": "node scripts/setup.js",
     "jshint": "jshint lib --reporter=jslint",

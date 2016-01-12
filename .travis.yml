@@ -11,8 +11,8 @@ before_install:
   - cd sdk/node
   - npm run-script setup
   - npm install
-  - npm install grunt --save-dev
-  - grunt genDocs
+  - npm install -g grunt-cli
+  - npm install grunt --save-dev  
   #- cd ..
   #- git clone https://github.com/azure/azure-xplat-cli.git
   #- cd azure-xplat-cli
