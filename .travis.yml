@@ -21,6 +21,7 @@ before_install:
   #- npm install
 
 script:
+  - grunt genDocs
   - grunt deploy
   #- npm test
   #- cd ../azure-xplat-cli
