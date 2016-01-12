@@ -6,12 +6,12 @@ targets/*
 *.user
 
 # Node #
-test/recordings/
-node_modules/
-npm-debug.log
-azure_error
-checkstyle-result.xml
-test-result.xml
+sdk/node/test/recordings/
+sdk/node/node_modules/
+sdk/node/npm-debug.log
+sdk/node/azure_error
+sdk/node/checkstyle-result.xml
+sdk/node/test-result.xml
 
 # Mac OS #
 .DS_Store
@@ -29,10 +29,10 @@ Thumbs.db
 .idea/
 
 # docs #
-docs/
-main.conf.json
-child.conf.json
+sdk/node/docs/
+sdk/node/main.conf.json
+sdk/node/child.conf.json
 
-# Nuget packages and corresponding codegen sources
+# Nuget packages and corresponding codegen sources 
 .nuget
 packages

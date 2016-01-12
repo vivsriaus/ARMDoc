@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-module.exports = function(grunt) {
+module.exports = function(grunt) { 
   var glob = require('glob');
   var _ = require('underscore');
   var path = require('path');
@@ -92,6 +92,8 @@ module.exports = function(grunt) {
     options: { overwrite: true },
     expanded: {files: packagesLatestSymlinkMapping}
   }
+  
+
 
   //init stuff
   grunt.initConfig({
@@ -110,13 +112,26 @@ module.exports = function(grunt) {
           base: './docs',
         }
       }
+    },
+	githubPages: {
+		target: {
+		  options: {
+			// The default commit message for the gh-pages branch
+			commitMessage: 'push'
+		  },
+		  // The folder where your gh-pages repo is
+		  src: './docs',
+		}
     }
   });
 
   grunt.loadNpmTasks('grunt-jsdoc');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-symlink');
+  grunt.loadNpmTasks('grunt-github-pages');
   grunt.loadTasks('tasks');
-  grunt.registerTask('publishdocs', ['githubPages:target']);
+  //grunt.registerTask('publishdocs', ['githubPages:target']);
+  // create an alias for the githubPages task
+  grunt.registerTask('deploy', ['githubPages:target']);
   grunt.registerTask('genDocs', ['jsdoc', 'symlink']);
 };

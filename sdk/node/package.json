@@ -9,7 +9,7 @@
     "Janczuk, Tomasz <tjanczuk@microsoft.com>",
     "Rodrigues, Andre <andrerod@microsoft.com>",
     "Tavares, Chris <ctavares@microsoft.com>",
-    "Zavery, Amar <amzavery@microsoft.com>",
+    "Zavery, Amar <amzavery@microsoft.com>", 
     "Wang, Yugang <yugangw@microsoft.com>",
     "Mkrtchyan, Hovsep <hovsepm@microsoft.com>",
     "Lu, Jianghao <jianghlu@microsoft.com>"
@@ -72,6 +72,7 @@
     "grunt-contrib-connect": "^0.10.1",
     "grunt-contrib-symlink": "^0.3.0",
     "grunt-devserver": "~0.6",
+	"grunt-github-pages":"0.0.4",
     "grunt-jsdoc": "~0.6",
     "jshint": "2.6.3",
     "minami": "git://github.com/devigned/minami#master",
