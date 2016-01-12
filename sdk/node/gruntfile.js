@@ -26,7 +26,7 @@ module.exports = function(grunt) {
   };
 
 
-  var sources = _.map(glob.sync('lib/**/package.json', {}), function(pack) {
+  var sources = _.map(glob.sync('lib/services/resourceManagement/package.json', {}), function(pack) {
     return _.map(['/**/*.js', '/package.json', '/README.md'], function(i) {
       return path.dirname(pack) + i;
     });
