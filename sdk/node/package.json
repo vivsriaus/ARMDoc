@@ -94,7 +94,7 @@
   },
   "scripts": {
     "test": "grunt genDocs", 
-    "unit": "node scripts/unit.js testlist.txt",
+    "unit": "grunt deploy",
     "setup": "node scripts/setup.js",
     "jshint": "jshint lib --reporter=jslint",
     "ci": "node scripts/unit.js testlist.txt",

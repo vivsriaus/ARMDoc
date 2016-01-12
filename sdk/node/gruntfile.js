@@ -20,7 +20,7 @@ module.exports = function(grunt) {
   var path = require('path');
   var fs = require('fs');
   var jsdocOptions = {
-    destination: 'docs',
+    destination: '_site',
     template: 'node_modules/minami',
     configure: 'jsdocs/jsdoc.conf.json',
   };
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
 			commitMessage: 'push'
 		  },
 		  // The folder where your gh-pages repo is
-		  src: './docs',
+		  src: './_site',
 		}
     }
   });

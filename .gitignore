@@ -12,6 +12,7 @@ sdk/node/npm-debug.log
 sdk/node/azure_error
 sdk/node/checkstyle-result.xml
 sdk/node/test-result.xml
+sdk/node/_site/
 
 # Mac OS #
 .DS_Store
