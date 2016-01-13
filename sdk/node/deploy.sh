@@ -9,7 +9,7 @@ git config user.name "Vivek Srinivasan"
 git config user.email "vivsriaus@gmail.com"
 
 git remote add origin "https://$GH_TOKEN@github.com/vivsriaus/ARMDoc.git"
-git checkout --orphan gh-pages
+#git checkout gh-pages
 #git pull upstream gh-pages
 
 # echo "example.com" > CNAME
