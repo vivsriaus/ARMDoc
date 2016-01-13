@@ -4,10 +4,6 @@ var colors = require('colors');
 var exec = require('child_process').exec;
 
 var mappings = {
-    'dir': 'storageManagement2/lib',
-    'source': 'arm-storage/2015-06-15/swagger/storage.json',
-    'ft': 2
-  },
   'resource': {
     'dir': 'resourceManagement/lib/resource',
     'source': 'arm-resources/resources/2014-04-01-preview/swagger/resources.json'
