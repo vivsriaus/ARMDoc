@@ -10,13 +10,9 @@ before_install:
 - npm install
 - npm install -g grunt-cli
 - npm install grunt --save-dev
-- echo -n $id_rsa_{00..30} >> ~/.ssh/id_rsa_base64
-- base64 --decode --ignore-garbage ~/.ssh/id_rsa_base64 > ~/.ssh/id_rsa
-- chmod 600 ~/.ssh/id_rsa
-- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
 - grunt genDocs
-- grunt deploy
 env:
   global:
-    secure: pnBTydXUkA2EEeSOpplbJg/mH63DtgJpWDmMRxeGikmfwdG7N1kt6FzTo4Btc/MJ6vq2EYBtGMP1zCtm5GP4N5LaY8KAqHdogWu6exAvSC0K5d96M7OF9ubP3cQYZH6Mz8Yua/fSWvOuCnbErYFA6nYEBRSzLmBh+eMNakDw7aHQxELWnienD5EE1HcmieP8xSKH/v/U+8Vq4gI9ObHFfnq7/qXmrjO+B4TSJQ3njWZaw8QDZ2x/vK9UFwiHJmVTs6s39XV5aDTD/Nbds+Z3XMA998nb19rOj14wcihSwK8W0erIw07l1iClosfFf5qxFGbqH/J6k5cZIUXo8BEKZeNwyCbhi/lftZfMx6zuJRGhhOY0jhb1CeYGZW8SLCmd3FPFfIalqnsA2KsxySWsys/QV2mcvv221lfNbHiF+fw4FyfnD2KIXZsUoCve0bmD7dE7znoBYbILa9/d943WKYH3eEXxvYL0qRSJDST17Em+aomUH70m6rQGC51UzsExg5OKMQ7rJpImwnYeUcfhUJgNg/9QzCiL3FpN6Raz1a092c2YHPH+4oQeu2s/ro7LnTL88RBPlRf9PwJYx2kvOMNBvtrTo87xTiNiPNp2ybGgln7Veq6n+6/GLUVXpBtlRuT64zX8JqYlb4ydNnHoVyshNjT5UcHEO8wvCQE/Zvs=
+    secure: ZlFb1c7WJvxQD7ErzjZ58UKbu27avP6ZWpiFbZ51K75Pw7vSe4RWthb91DmDPTgS/ALpcBxa1FfAz5aQZ9w9oAuJd4uSmbj2nTCpc+/HA+/l+ilsITmcAFhkuQ8fsQUDKK1DxrP6iYBukUTA2SD081xWCZ4c36OFZevc+4Z33aZ51PCZs+44BmLqjhTuJbauTZubsi6nbPglNJvOd1cJqeOcpTkjIpbwvyZAx8sZWc10YyrBBe+Eiun4t8w+6PS/djGjpCKvGI2Ll408Tm7DXcu8N0XEYz+nVJuEMIhuSD3UwKx/c6rqUvv1FACDQdiGwPRVSKvE5PFMcTZPVxWBcbe4mjAc0YdODG+OJZBa/ut6luWysrU8H39kh3bKwX6f1pNWoHxxW5hvqTEs1pVtF079CtuGDz17zBSyG3AQVyCjDe+pu+lA3bcNnCuLgR3auO1mL6V/TAUG9tqzTDzcrxT65NrOwmlb2aYdJrBFaYN75zQZkKti5jFthbmOugPJzynW59iEXOZLy3efl6J84Qed7k1btUzJptkQlPgjSL5/O5b5gl7RKyH4lM0xPARxBcfzUcb/huFywoOlyIl0Ka2swSiukZQFYtK1x8vs8VHIF+LHJYfaKt6RlbSaHpoAqmB+IL5Vo10MJzmZFHEXb8oo2tPx37RzUzsdp7vID70=
+  
