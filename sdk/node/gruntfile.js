@@ -112,26 +112,12 @@ module.exports = function(grunt) {
           base: './docs',
         }
       }
-    },
-	githubPages: {
-		target: {
-		  options: {
-			// The default commit message for the gh-pages branch
-			commitMessage: 'push'
-		  },
-		  // The folder where your gh-pages repo is
-		  src: './_site',
-		}
     }
   });
 
   grunt.loadNpmTasks('grunt-jsdoc');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-symlink');
-  grunt.loadNpmTasks('grunt-github-pages');
   grunt.loadTasks('tasks');
-  //grunt.registerTask('publishdocs', ['githubPages:target']);
-  // create an alias for the githubPages task
-  grunt.registerTask('deploy', ['githubPages:target']);
   grunt.registerTask('genDocs', ['jsdoc', 'symlink']);
 };
