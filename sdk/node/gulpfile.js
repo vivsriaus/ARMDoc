@@ -51,7 +51,7 @@ gulp.task('codegen', function(cb) {
         console.error('Invalid project name "' + project + '"!');
         process.exit(1);
       }
-      codegen(project, cb);
+      codegen(project, cb); 
     }
   });
 });
