@@ -16,7 +16,7 @@ git remote add origin "https://$GH_TOKEN@github.com/vivsriaus/ARMDoc.git"
 
 touch .
 
-git pull origin gh-pages
 git add -A .
 git commit -m "rebuild pages at ${rev}"
+git pull origin gh-pages
 git push origin gh-pages
