@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ProviderOperationsMetadataOperations - Documentation</title>
+    <title>resource.js - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,514 +31,118 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">ProviderOperationsMetadataOperations</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>
-        ProviderOperationsMetadataOperations
-        </h2>
-        
-            <div class="class-description"><p>Operations for getting provider operations metadata.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [providerOperationsMetadata] {@link<br>ResourceManagementClient~ResourceManagementClient#providerOperationsMetadata}.<br>Initializes a new instance of the ProviderOperationsMetadataOperations<br>class.</p></div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="ProviderOperationsMetadataOperations"><span class="type-signature"></span>new ProviderOperationsMetadataOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>client</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">ResourceManagementClient</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Reference to the service client.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3744">line 3744</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resourceProviderNamespace, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Gets provider operations metadata</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Namespace of the resource<br>provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3758">line 3758</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Gets provider operations metadata list</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3965">line 3965</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
+    <h1 class="page-title">resource.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//
+// Copyright (c) Microsoft and contributors.  All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+var exports = module.exports;
+
+var ResourceManagementClient = require('./resourceManagementClient');
+exports.ResourceManagementClient = ResourceManagementClient;
+
+/**
+* Creates a new {@link ResourceManagementClient} object.
+*
+* @param {string} [credentials.subscriptionId]      The subscription identifier.
+* @param {string} [credentials.token]               The access token.
+* @param {string} [baseUri]                         The base uri.
+* @return {ResourceManagementClient}                A new ResourceManagementClient object.
+*/
+exports.createResourceManagementClient = function (credentials, baseUri) {
+  return new exports.ResourceManagementClient.ResourceManagementClient(credentials, baseUri);
+};
+
+var ResourceSubscriptionClient = require('./subscriptionClient');
+exports.ResourceSubscriptionClient = ResourceSubscriptionClient;
+
+/**
+* Creates a new {@link ResourceSubscriptionClient} object.
+*
+* @param {string} [credentials.token]               The access token.
+* @param {string} [baseUri]                         The base uri.
+* @return {ResourceSubscriptionClient}              A new ResourceSubscriptionClient object.
+*/
+exports.createResourceSubscriptionClient = function (credentials, baseUri) {
+  return new exports.ResourceSubscriptionClient.SubscriptionClient(credentials, baseUri);
+};
+
+var ResourceFeatureClient = require('./featureClient');
+exports.ResourceFeatureClient = ResourceFeatureClient;
+
+/**
+* Creates a new {@link ResourceFeatureClient} object.
+*
+* @param {string} [credentials.token]               The access token.
+* @param {string} [baseUri]                         The base uri.
+* @return {ResourceFeatureClient}                   A new ResourceFeatureClient object.
+*/
+exports.createResourceFeatureClient = function (credentials, baseUri) {
+  return new exports.ResourceFeatureClient.FeatureClient(credentials, baseUri);
+};
+
+function getProviderName(resourceType) {
+  var firstIndex = resourceType.indexOf('/');
+  var providerName;
+  if (firstIndex !== -1){
+    providerName = resourceType.substr(0, firstIndex);
+  }
+  return providerName;
+}
+
+function getResourceTypeName(resourceType) {
+  var lastIndex = resourceType.lastIndexOf('/');
+  var resourceTypeName;
+  if (lastIndex !== -1){
+    resourceTypeName = resourceType.substr(lastIndex+1);
+  }
+  return resourceTypeName;
+}
+
+/**
+* Creates a new Resource Identity object.
+*
+* @param {string} name                    The resource name
+* @param {string} resourceType            The resource type.
+* @param {string} apiVersion              The api version.
+* @param {string} [parent]                The parent resource.
+* @return {object}                        The resource identity.
+*/
+exports.createResourceIdentity = function (name, resourceType, apiVersion, parent) {
+  var identity = {
+    resourceName: name,
+    resourceProviderNamespace: getProviderName(resourceType),
+    resourceProviderApiVersion: apiVersion,
+    resourceType: getResourceTypeName(resourceType),
+    parentResourcePath: !!parent ? parent : ''
+  };
+
+  return identity;
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -548,7 +152,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 02:06:14 GMT+0000 (UTC) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

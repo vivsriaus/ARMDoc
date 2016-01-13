@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>SubscriptionOperations - Documentation</title>
+    <title>Global - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">SubscriptionOperations</h1>
+    <h1 class="page-title">Global</h1>
     
 
     
@@ -44,10 +44,8 @@
 <header>
     
         <h2>
-        SubscriptionOperations
-        </h2>
         
-            <div class="class-description"><p>Operations for managing subscriptions.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [SubscriptionClient] {@link<br>SubscriptionClient~SubscriptionClient}.<br>See [subscriptions] {@link<br>SubscriptionClient~SubscriptionClient#subscriptions}.<br>Initializes a new instance of the SubscriptionOperations class.</p></div>
+        </h2>
         
     
 </header>
@@ -57,75 +55,7 @@
     
         
 
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="SubscriptionOperations"><span class="type-signature"></span>new SubscriptionOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
         
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>client</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">SubscriptionClient</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Reference to the service client.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
 
 
 <dl class="details">
@@ -155,11 +85,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="subscriptionClient.js.html">subscriptionClient.js</a>, <a href="subscriptionClient.js.html#line103">line 103</a>
-    </li></ul></dd>
-    
 
     
 
@@ -169,20 +94,7 @@
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
     
     </div>
 
@@ -206,14 +118,14 @@
 
     
 
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(subscriptionId, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="createResourceFeatureClient"><span class="type-signature"></span>createResourceFeatureClient<span class="signature">(baseUri<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {ResourceFeatureClient}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Gets details about particular subscription.</p>
+    <p>Creates a new <code>ResourceFeatureClient</code> object.</p>
 </div>
 
 
@@ -237,6 +149,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -249,7 +163,7 @@
 
         <tr>
             
-                <td class="name"><code>subscriptionId</code></td>
+                <td class="name"><code>credentials.token</code></td>
             
 
             <td class="type">
@@ -262,33 +176,53 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>Id of the subscription.</p></td>
+            <td class="description last"><p>The access token.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>baseUri</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The base uri.</p></td>
         </tr>
 
     
@@ -329,7 +263,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="subscriptionClient.js.html">subscriptionClient.js</a>, <a href="subscriptionClient.js.html#line116">line 116</a>
+        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -356,7 +290,7 @@
 
         
 <div class="param-desc">
-    <p>The response stream.</p>
+    <p>A new ResourceFeatureClient object.</p>
 </div>
 
 
@@ -367,7 +301,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Stream</span>
+<span class="param-type">ResourceFeatureClient</span>
 
 
     </dd>
@@ -382,14 +316,14 @@
 
     
 
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="createResourceIdentity"><span class="type-signature"></span>createResourceIdentity<span class="signature">(name, resourceType, apiVersion, parent<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {object}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Gets a list of the subscriptionIds.</p>
+    <p>Creates a new Resource Identity object.</p>
 </div>
 
 
@@ -413,6 +347,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -425,23 +361,126 @@
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The resource name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resourceType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The resource type.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>apiVersion</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The api version.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The parent resource.</p></td>
         </tr>
 
     
@@ -482,7 +521,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="subscriptionClient.js.html">subscriptionClient.js</a>, <a href="subscriptionClient.js.html#line223">line 223</a>
+        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -509,7 +548,7 @@
 
         
 <div class="param-desc">
-    <p>The response stream.</p>
+    <p>The resource identity.</p>
 </div>
 
 
@@ -520,7 +559,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Stream</span>
+<span class="param-type">object</span>
 
 
     </dd>
@@ -535,14 +574,14 @@
 
     
 
-    <h4 class="name" id="listLocations"><span class="type-signature"></span>listLocations<span class="signature">(subscriptionId, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="createResourceManagementClient"><span class="type-signature"></span>createResourceManagementClient<span class="signature">(baseUri<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {ResourceManagementClient}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Gets a list of the subscription locations.</p>
+    <p>Creates a new <code>ResourceManagementClient</code> object.</p>
 </div>
 
 
@@ -566,6 +605,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -578,7 +619,7 @@
 
         <tr>
             
-                <td class="name"><code>subscriptionId</code></td>
+                <td class="name"><code>credentials.subscriptionId</code></td>
             
 
             <td class="type">
@@ -591,33 +632,86 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>Id of the subscription</p></td>
+            <td class="description last"><p>The subscription identifier.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>credentials.token</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The access token.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>baseUri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The base uri.</p></td>
         </tr>
 
     
@@ -658,7 +752,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="subscriptionClient.js.html">subscriptionClient.js</a>, <a href="subscriptionClient.js.html#line334">line 334</a>
+        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -685,7 +779,7 @@
 
         
 <div class="param-desc">
-    <p>The response stream.</p>
+    <p>A new ResourceManagementClient object.</p>
 </div>
 
 
@@ -696,7 +790,205 @@
     </dt>
     <dd>
         
-<span class="param-type">Stream</span>
+<span class="param-type">ResourceManagementClient</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="createResourceSubscriptionClient"><span class="type-signature"></span>createResourceSubscriptionClient<span class="signature">(baseUri<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {ResourceSubscriptionClient}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Creates a new <code>ResourceSubscriptionClient</code> object.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>credentials.token</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The access token.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>baseUri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The base uri.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A new ResourceSubscriptionClient object.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">ResourceSubscriptionClient</span>
 
 
     </dd>
@@ -724,7 +1016,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 02:06:14 GMT+0000 (UTC) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

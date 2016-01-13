@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>DeploymentOperationOperations - Documentation</title>
+    <title>TenantOperations - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">DeploymentOperationOperations</h1>
+    <h1 class="page-title">TenantOperations</h1>
     
 
     
@@ -44,10 +44,10 @@
 <header>
     
         <h2>
-        DeploymentOperationOperations
+        TenantOperations
         </h2>
         
-            <div class="class-description"><p>Operations for managing deployment operations.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [deploymentOperations] {@link<br>ResourceManagementClient~ResourceManagementClient#deploymentOperations}.<br>Initializes a new instance of the DeploymentOperationOperations class.</p></div>
+            <div class="class-description"><p>Operations for managing tenants.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [SubscriptionClient] {@link<br>SubscriptionClient~SubscriptionClient}.<br>See [tenants] <a href="SubscriptionClient-SubscriptionClient.html#tenants"><code>SubscriptionClient~SubscriptionClient#tenants</code></a>.<br>Initializes a new instance of the TenantOperations class.</p></div>
         
     
 </header>
@@ -61,7 +61,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="DeploymentOperationOperations"><span class="type-signature"></span>new DeploymentOperationOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TenantOperations"><span class="type-signature"></span>new TenantOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
 
     
 
@@ -106,7 +106,7 @@
             <td class="type">
             
                 
-<span class="param-type">ResourceManagementClient</span>
+<span class="param-type">SubscriptionClient</span>
 
 
             
@@ -157,7 +157,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line222">line 222</a>
+        <a href="subscriptionClient.js.html">subscriptionClient.js</a>, <a href="subscriptionClient.js.html#line469">line 469</a>
     </li></ul></dd>
     
 
@@ -206,14 +206,14 @@
 
     
 
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resourceGroupName, deploymentName, operationId, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Get a list of deployments operations.</p>
+    <p>Gets a list of the tenantIds.</p>
 </div>
 
 
@@ -245,75 +245,6 @@
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceGroupName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>deploymentName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the deployment.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>operationId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Operation Id.</p></td>
-        </tr>
-
     
 
         <tr>
@@ -375,502 +306,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line240">line 240</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(resourceGroupName, deploymentName, parametersOrCallback<span class="signature-attributes">opt</span>, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Gets a list of deployments operations.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceGroupName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>deploymentName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The name of the deployment.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parametersOrCallback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">DeploymentOperationsListParameters</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Query<br>parameters.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>top</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Get or sets the number of<br>records to return. Optional.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line420">line 420</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="listNext"><span class="type-signature"></span>listNext<span class="signature">(nextLink, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Gets a next list of deployments operations.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>nextLink</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>NextLink from the previous successful call to<br>List operation.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line608">line 608</a>
+        <a href="subscriptionClient.js.html">subscriptionClient.js</a>, <a href="subscriptionClient.js.html#line480">line 480</a>
     </li></ul></dd>
     
 
@@ -936,7 +372,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 02:06:14 GMT+0000 (UTC) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

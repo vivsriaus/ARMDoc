@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Global - Documentation</title>
+    <title>TagOperations - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">TagOperations</h1>
     
 
     
@@ -44,8 +44,10 @@
 <header>
     
         <h2>
-        
+        TagOperations
         </h2>
+        
+            <div class="class-description"><p>Operations for managing tags.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [tags] <a href="ResourceManagementClient-ResourceManagementClient.html#tags"><code>ResourceManagementClient~ResourceManagementClient#tags</code></a>.<br>Initializes a new instance of the TagOperations class.</p></div>
         
     
 </header>
@@ -55,7 +57,75 @@
     
         
 
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="TagOperations"><span class="type-signature"></span>new TagOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
         
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ResourceManagementClient</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Reference to the service client.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
 
 
 <dl class="details">
@@ -85,6 +155,11 @@
     
 
     
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6835">line 6835</a>
+    </li></ul></dd>
+    
 
     
 
@@ -94,7 +169,20 @@
 </dl>
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     </div>
 
@@ -118,14 +206,14 @@
 
     
 
-    <h4 class="name" id="createResourceFeatureClient"><span class="type-signature"></span>createResourceFeatureClient<span class="signature">(baseUri<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {ResourceFeatureClient}</span></h4>
+    <h4 class="name" id="createOrUpdate"><span class="type-signature"></span>createOrUpdate<span class="signature">(tagName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Creates a new <code>ResourceFeatureClient</code> object.</p>
+    <p>Create a subscription resource tag.</p>
 </div>
 
 
@@ -149,8 +237,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -163,7 +249,7 @@
 
         <tr>
             
-                <td class="name"><code>credentials.token</code></td>
+                <td class="name"><code>tagName</code></td>
             
 
             <td class="type">
@@ -176,53 +262,33 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The access token.</p></td>
+            <td class="description last"><p>The name of the tag.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>baseUri</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The base uri.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -263,7 +329,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line58">line 58</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6848">line 6848</a>
     </li></ul></dd>
     
 
@@ -290,7 +356,7 @@
 
         
 <div class="param-desc">
-    <p>A new ResourceFeatureClient object.</p>
+    <p>The response stream.</p>
 </div>
 
 
@@ -301,7 +367,7 @@
     </dt>
     <dd>
         
-<span class="param-type">ResourceFeatureClient</span>
+<span class="param-type">Stream</span>
 
 
     </dd>
@@ -316,14 +382,14 @@
 
     
 
-    <h4 class="name" id="createResourceIdentity"><span class="type-signature"></span>createResourceIdentity<span class="signature">(name, resourceType, apiVersion, parent<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="createOrUpdateValue"><span class="type-signature"></span>createOrUpdateValue<span class="signature">(tagName, tagValue, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Creates a new Resource Identity object.</p>
+    <p>Create a subscription resource tag value.</p>
 </div>
 
 
@@ -347,8 +413,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -361,7 +425,7 @@
 
         <tr>
             
-                <td class="name"><code>name</code></td>
+                <td class="name"><code>tagName</code></td>
             
 
             <td class="type">
@@ -374,25 +438,17 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The resource name</p></td>
+            <td class="description last"><p>The name of the tag.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>resourceType</code></td>
+                <td class="name"><code>tagValue</code></td>
             
 
             <td class="type">
@@ -405,82 +461,33 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The resource type.</p></td>
+            <td class="description last"><p>The value of the tag.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>apiVersion</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The api version.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parent</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The parent resource.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -521,7 +528,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line89">line 89</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7008">line 7008</a>
     </li></ul></dd>
     
 
@@ -548,7 +555,7 @@
 
         
 <div class="param-desc">
-    <p>The resource identity.</p>
+    <p>The response stream.</p>
 </div>
 
 
@@ -559,7 +566,7 @@
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type">Stream</span>
 
 
     </dd>
@@ -574,14 +581,14 @@
 
     
 
-    <h4 class="name" id="createResourceManagementClient"><span class="type-signature"></span>createResourceManagementClient<span class="signature">(baseUri<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {ResourceManagementClient}</span></h4>
+    <h4 class="name" id="deleteMethod"><span class="type-signature"></span>deleteMethod<span class="signature">(tagName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Creates a new <code>ResourceManagementClient</code> object.</p>
+    <p>Delete a subscription resource tag.</p>
 </div>
 
 
@@ -605,8 +612,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -619,7 +624,7 @@
 
         <tr>
             
-                <td class="name"><code>credentials.subscriptionId</code></td>
+                <td class="name"><code>tagName</code></td>
             
 
             <td class="type">
@@ -632,86 +637,33 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The subscription identifier.</p></td>
+            <td class="description last"><p>The name of the tag.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>credentials.token</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The access token.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>baseUri</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The base uri.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -752,7 +704,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line30">line 30</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7132">line 7132</a>
     </li></ul></dd>
     
 
@@ -779,7 +731,7 @@
 
         
 <div class="param-desc">
-    <p>A new ResourceManagementClient object.</p>
+    <p>The response stream.</p>
 </div>
 
 
@@ -790,7 +742,7 @@
     </dt>
     <dd>
         
-<span class="param-type">ResourceManagementClient</span>
+<span class="param-type">Stream</span>
 
 
     </dd>
@@ -805,14 +757,14 @@
 
     
 
-    <h4 class="name" id="createResourceSubscriptionClient"><span class="type-signature"></span>createResourceSubscriptionClient<span class="signature">(baseUri<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {ResourceSubscriptionClient}</span></h4>
+    <h4 class="name" id="deleteValue"><span class="type-signature"></span>deleteValue<span class="signature">(tagName, tagValue, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Creates a new <code>ResourceSubscriptionClient</code> object.</p>
+    <p>Delete a subscription resource tag value.</p>
 </div>
 
 
@@ -836,8 +788,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -850,7 +800,7 @@
 
         <tr>
             
-                <td class="name"><code>credentials.token</code></td>
+                <td class="name"><code>tagName</code></td>
             
 
             <td class="type">
@@ -863,27 +813,17 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The access token.</p></td>
+            <td class="description last"><p>The name of the tag.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>baseUri</code></td>
+                <td class="name"><code>tagValue</code></td>
             
 
             <td class="type">
@@ -896,20 +836,33 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
-                
+            
 
+            <td class="description last"><p>The value of the tag.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
             
 
             
 
-            <td class="description last"><p>The base uri.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -950,7 +903,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resource.js.html">resource.js</a>, <a href="resource.js.html#line44">line 44</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7210">line 7210</a>
     </li></ul></dd>
     
 
@@ -977,7 +930,7 @@
 
         
 <div class="param-desc">
-    <p>A new ResourceSubscriptionClient object.</p>
+    <p>The response stream.</p>
 </div>
 
 
@@ -988,7 +941,336 @@
     </dt>
     <dd>
         
-<span class="param-type">ResourceSubscriptionClient</span>
+<span class="param-type">Stream</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Get a list of subscription resource tags.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7289">line 7289</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The response stream.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Stream</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="listNext"><span class="type-signature"></span>listNext<span class="signature">(nextLink, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Get a list of tags under a subscription.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nextLink</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>NextLink from the previous successful call to<br>List operation.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7456">line 7456</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The response stream.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Stream</span>
 
 
     </dd>
@@ -1016,7 +1298,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 02:06:14 GMT+0000 (UTC) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

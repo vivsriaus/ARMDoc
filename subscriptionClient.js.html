@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>featureClient.js - Documentation</title>
+    <title>subscriptionClient.js - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">featureClient.js</h1>
+    <h1 class="page-title">subscriptionClient.js</h1>
     
 
     
@@ -73,29 +73,26 @@ var azureCommon = require('azure-common');
 var Service = azureCommon.Service;
 var WebResource = azureCommon.WebResource;
 
-var FeatureClient = ( /** @lends FeatureClient */ function() {
+var SubscriptionClient = ( /** @lends SubscriptionClient */ function() {
   /**
    * @class
-   * Initializes a new instance of the FeatureClient class.
+   * Initializes a new instance of the SubscriptionClient class.
    * @constructor
    * 
-   * @param {SubscriptionCloudCredentials} credentials Gets subscription
-   * credentials which uniquely identify Microsoft Azure subscription. The
-   * subscription ID forms part of the URI for every service call.
-   * 
-   * @param {string} [credentials.subscriptionId]
+   * @param {CloudCredentials} credentials Credentials used to authenticate
+   * requests.
    * 
    * @param {string} [baseUri] Gets the URI used as the base for all cloud
    * service requests.
    * 
    * @param {Array} filters
    */
-  function FeatureClient(credentials, baseUri, filters) {
+  function SubscriptionClient(credentials, baseUri, filters) {
     if (credentials === null || credentials === undefined) {
       throw new Error('credentials cannot be null.');
     }
     
-    FeatureClient['super_'].call(this, credentials, filters);
+    SubscriptionClient['super_'].call(this, credentials, filters);
     
     this.credentials = credentials;
     this.baseUri = baseUri;
@@ -103,7 +100,7 @@ var FeatureClient = ( /** @lends FeatureClient */ function() {
       this.baseUri = 'https://management.azure.com/';
     }
     if (this.apiVersion === null || this.apiVersion === undefined) {
-      this.apiVersion = '2014-08-01-preview';
+      this.apiVersion = '2014-04-01-preview';
     }
     if (this.longRunningOperationInitialTimeout === null || this.longRunningOperationInitialTimeout === undefined) {
       this.longRunningOperationInitialTimeout = -1;
@@ -112,58 +109,60 @@ var FeatureClient = ( /** @lends FeatureClient */ function() {
       this.longRunningOperationRetryTimeout = -1;
     }
     /**
-     * Provides an instance of the [Features](-Features.html) object.
+     * Provides an instance of the
+     * [SubscriptionOperations](-SubscriptionOperations.html) object.
      * @type {object}
      */
-    this.features = new Features(this);
+    this.subscriptions = new SubscriptionOperations(this);
+    /**
+     * Provides an instance of the [TenantOperations](-TenantOperations.html)
+     * object.
+     * @type {object}
+     */
+    this.tenants = new TenantOperations(this);
   }
   
-  util.inherits(FeatureClient, Service);
+  util.inherits(SubscriptionClient, Service);
   
   
-  return FeatureClient;
+  return SubscriptionClient;
 })();
-exports.FeatureClient = FeatureClient;
+exports.SubscriptionClient = SubscriptionClient;
 
-var Features = ( /** @lends Features */ function() {
+var SubscriptionOperations = ( /** @lends SubscriptionOperations */ function() {
   /**
    * @class
-   * Operations for managing preview features.
+   * Operations for managing subscriptions.
    * __NOTE__: An instance of this class is automatically created for an
-   * instance of the [FeatureClient] {@link FeatureClient~FeatureClient}.
-   * See [features] {@link FeatureClient~FeatureClient#features}.
-   * Initializes a new instance of the Features class.
+   * instance of the [SubscriptionClient] {@link
+   * SubscriptionClient~SubscriptionClient}.
+   * See [subscriptions] {@link
+   * SubscriptionClient~SubscriptionClient#subscriptions}.
+   * Initializes a new instance of the SubscriptionOperations class.
    * @constructor
    * 
-   * @param {FeatureClient} client Reference to the service client.
+   * @param {SubscriptionClient} client Reference to the service client.
    */
-  function Features(client) {
+  function SubscriptionOperations(client) {
     this.client = client;
   }
   
   /**
-   * Get all features under the subscription.
+   * Gets details about particular subscription.
    * 
-   * @param {string} resourceProviderNamespace Namespace of the resource
-   * provider.
-   * 
-   * @param {string} featureName Previewed feature name in the resource
-   * provider.
+   * @param {string} subscriptionId Id of the subscription.
    * 
    * @param {function} callback
    * 
    * @returns {Stream} The response stream.
    */
-  Features.prototype.get = function(resourceProviderNamespace, featureName, callback) {
+  SubscriptionOperations.prototype.get = function(subscriptionId, callback) {
     if (callback === null || callback === undefined) {
       throw new Error('callback cannot be null.');
     }
     // Validate
-    if (resourceProviderNamespace === null || resourceProviderNamespace === undefined) {
-      return callback(new Error('resourceProviderNamespace cannot be null.'));
-    }
-    if (featureName === null || featureName === undefined) {
-      return callback(new Error('featureName cannot be null.'));
+    if (subscriptionId === null || subscriptionId === undefined) {
+      return callback(new Error('subscriptionId cannot be null.'));
     }
     
     // Tracing
@@ -171,15 +170,9 @@ var Features = ( /** @lends Features */ function() {
     // Construct URL
     var url2 = '';
     url2 = url2 + '/subscriptions/';
-    if (this.client.credentials.subscriptionId !== null &amp;&amp; this.client.credentials.subscriptionId !== undefined) {
-      url2 = url2 + encodeURIComponent(this.client.credentials.subscriptionId);
-    }
-    url2 = url2 + '/providers/Microsoft.Features/providers/';
-    url2 = url2 + encodeURIComponent(resourceProviderNamespace);
-    url2 = url2 + '/features/';
-    url2 = url2 + encodeURIComponent(featureName);
+    url2 = url2 + encodeURIComponent(subscriptionId);
     var queryParameters = [];
-    queryParameters.push('api-version=2014-08-01-preview');
+    queryParameters.push('api-version=2014-04-01-preview');
     if (queryParameters.length > 0) {
       url2 = url2 + '?' + queryParameters.join('&amp;');
     }
@@ -201,7 +194,7 @@ var Features = ( /** @lends Features */ function() {
     httpRequest.url = url2;
     
     // Set Headers
-    httpRequest.headers['Content-Type'] = 'application/json';
+    httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
     
     // Send Request
     return this.client.pipeline(httpRequest, function (err, response, body) {
@@ -227,34 +220,31 @@ var Features = ( /** @lends Features */ function() {
         }
         
         if (responseDoc !== null &amp;&amp; responseDoc !== undefined) {
-          var nameValue = responseDoc['name'];
-          if (nameValue !== null &amp;&amp; nameValue !== undefined) {
-            var nameInstance = nameValue;
-            result.name = nameInstance;
-          }
-          
-          var propertiesValue = responseDoc['properties'];
-          if (propertiesValue !== null &amp;&amp; propertiesValue !== undefined) {
-            var propertiesInstance = {};
-            result.properties = propertiesInstance;
-            
-            var stateValue = propertiesValue['state'];
-            if (stateValue !== null &amp;&amp; stateValue !== undefined) {
-              var stateInstance = stateValue;
-              propertiesInstance.state = stateInstance;
-            }
-          }
+          var subscriptionInstance = {};
+          result.subscription = subscriptionInstance;
           
           var idValue = responseDoc['id'];
           if (idValue !== null &amp;&amp; idValue !== undefined) {
             var idInstance = idValue;
-            result.id = idInstance;
+            subscriptionInstance.id = idInstance;
           }
           
-          var typeValue = responseDoc['type'];
-          if (typeValue !== null &amp;&amp; typeValue !== undefined) {
-            var typeInstance = typeValue;
-            result.type = typeInstance;
+          var subscriptionIdValue = responseDoc['subscriptionId'];
+          if (subscriptionIdValue !== null &amp;&amp; subscriptionIdValue !== undefined) {
+            var subscriptionIdInstance = subscriptionIdValue;
+            subscriptionInstance.subscriptionId = subscriptionIdInstance;
+          }
+          
+          var displayNameValue = responseDoc['displayName'];
+          if (displayNameValue !== null &amp;&amp; displayNameValue !== undefined) {
+            var displayNameInstance = displayNameValue;
+            subscriptionInstance.displayName = displayNameInstance;
+          }
+          
+          var stateValue = responseDoc['state'];
+          if (stateValue !== null &amp;&amp; stateValue !== undefined) {
+            var stateInstance = stateValue;
+            subscriptionInstance.state = stateInstance;
           }
         }
         
@@ -267,37 +257,25 @@ var Features = ( /** @lends Features */ function() {
   };
   
   /**
-   * Gets a list of previewed features of a resource provider.
-   * 
-   * @param {string} resourceProviderNamespace The namespace of the resource
-   * provider.
+   * Gets a list of the subscriptionIds.
    * 
    * @param {function} callback
    * 
    * @returns {Stream} The response stream.
    */
-  Features.prototype.list = function(resourceProviderNamespace, callback) {
+  SubscriptionOperations.prototype.list = function(callback) {
     if (callback === null || callback === undefined) {
       throw new Error('callback cannot be null.');
     }
     // Validate
-    if (resourceProviderNamespace === null || resourceProviderNamespace === undefined) {
-      return callback(new Error('resourceProviderNamespace cannot be null.'));
-    }
     
     // Tracing
     
     // Construct URL
     var url2 = '';
-    url2 = url2 + '/subscriptions/';
-    if (this.client.credentials.subscriptionId !== null &amp;&amp; this.client.credentials.subscriptionId !== undefined) {
-      url2 = url2 + encodeURIComponent(this.client.credentials.subscriptionId);
-    }
-    url2 = url2 + '/providers/Microsoft.Features/providers/';
-    url2 = url2 + encodeURIComponent(resourceProviderNamespace);
-    url2 = url2 + '/features';
+    url2 = url2 + '/subscriptions';
     var queryParameters = [];
-    queryParameters.push('api-version=2014-08-01-preview');
+    queryParameters.push('api-version=2014-04-01-preview');
     if (queryParameters.length > 0) {
       url2 = url2 + '?' + queryParameters.join('&amp;');
     }
@@ -338,7 +316,7 @@ var Features = ( /** @lends Features */ function() {
       // Deserialize Response
       if (statusCode === 200) {
         var responseContent = body;
-        result = { features: [] };
+        result = { subscriptions: [] };
         var responseDoc = null;
         if (responseContent) {
           responseDoc = JSON.parse(responseContent);
@@ -349,45 +327,33 @@ var Features = ( /** @lends Features */ function() {
           if (valueArray !== null &amp;&amp; valueArray !== undefined) {
             for (var loweredIndex1 = 0; loweredIndex1 &lt; valueArray.length; loweredIndex1 = loweredIndex1 + 1) {
               var valueValue = valueArray[loweredIndex1];
-              var featureResponseInstance = {};
-              result.features.push(featureResponseInstance);
-              
-              var nameValue = valueValue['name'];
-              if (nameValue !== null &amp;&amp; nameValue !== undefined) {
-                var nameInstance = nameValue;
-                featureResponseInstance.name = nameInstance;
-              }
-              
-              var propertiesValue = valueValue['properties'];
-              if (propertiesValue !== null &amp;&amp; propertiesValue !== undefined) {
-                var propertiesInstance = {};
-                featureResponseInstance.properties = propertiesInstance;
-                
-                var stateValue = propertiesValue['state'];
-                if (stateValue !== null &amp;&amp; stateValue !== undefined) {
-                  var stateInstance = stateValue;
-                  propertiesInstance.state = stateInstance;
-                }
-              }
+              var subscriptionInstance = {};
+              result.subscriptions.push(subscriptionInstance);
               
               var idValue = valueValue['id'];
               if (idValue !== null &amp;&amp; idValue !== undefined) {
                 var idInstance = idValue;
-                featureResponseInstance.id = idInstance;
+                subscriptionInstance.id = idInstance;
               }
               
-              var typeValue = valueValue['type'];
-              if (typeValue !== null &amp;&amp; typeValue !== undefined) {
-                var typeInstance = typeValue;
-                featureResponseInstance.type = typeInstance;
+              var subscriptionIdValue = valueValue['subscriptionId'];
+              if (subscriptionIdValue !== null &amp;&amp; subscriptionIdValue !== undefined) {
+                var subscriptionIdInstance = subscriptionIdValue;
+                subscriptionInstance.subscriptionId = subscriptionIdInstance;
+              }
+              
+              var displayNameValue = valueValue['displayName'];
+              if (displayNameValue !== null &amp;&amp; displayNameValue !== undefined) {
+                var displayNameInstance = displayNameValue;
+                subscriptionInstance.displayName = displayNameInstance;
+              }
+              
+              var stateValue = valueValue['state'];
+              if (stateValue !== null &amp;&amp; stateValue !== undefined) {
+                var stateInstance = stateValue;
+                subscriptionInstance.state = stateInstance;
               }
             }
-          }
-          
-          var nextLinkValue = responseDoc['nextLink'];
-          if (nextLinkValue !== null &amp;&amp; nextLinkValue !== undefined) {
-            var nextLinkInstance = nextLinkValue;
-            result.nextLink = nextLinkInstance;
           }
         }
         
@@ -400,30 +366,32 @@ var Features = ( /** @lends Features */ function() {
   };
   
   /**
-   * Gets a list of previewed features for all the providers in the current
-   * subscription.
+   * Gets a list of the subscription locations.
+   * 
+   * @param {string} subscriptionId Id of the subscription
    * 
    * @param {function} callback
    * 
    * @returns {Stream} The response stream.
    */
-  Features.prototype.listAll = function(callback) {
+  SubscriptionOperations.prototype.listLocations = function(subscriptionId, callback) {
     if (callback === null || callback === undefined) {
       throw new Error('callback cannot be null.');
     }
     // Validate
+    if (subscriptionId === null || subscriptionId === undefined) {
+      return callback(new Error('subscriptionId cannot be null.'));
+    }
     
     // Tracing
     
     // Construct URL
     var url2 = '';
     url2 = url2 + '/subscriptions/';
-    if (this.client.credentials.subscriptionId !== null &amp;&amp; this.client.credentials.subscriptionId !== undefined) {
-      url2 = url2 + encodeURIComponent(this.client.credentials.subscriptionId);
-    }
-    url2 = url2 + '/providers/Microsoft.Features/features';
+    url2 = url2 + encodeURIComponent(subscriptionId);
+    url2 = url2 + '/locations';
     var queryParameters = [];
-    queryParameters.push('api-version=2014-08-01-preview');
+    queryParameters.push('api-version=2014-04-01-preview');
     if (queryParameters.length > 0) {
       url2 = url2 + '?' + queryParameters.join('&amp;');
     }
@@ -464,7 +432,7 @@ var Features = ( /** @lends Features */ function() {
       // Deserialize Response
       if (statusCode === 200) {
         var responseContent = body;
-        result = { features: [] };
+        result = { locations: [] };
         var responseDoc = null;
         if (responseContent) {
           responseDoc = JSON.parse(responseContent);
@@ -475,45 +443,45 @@ var Features = ( /** @lends Features */ function() {
           if (valueArray !== null &amp;&amp; valueArray !== undefined) {
             for (var loweredIndex1 = 0; loweredIndex1 &lt; valueArray.length; loweredIndex1 = loweredIndex1 + 1) {
               var valueValue = valueArray[loweredIndex1];
-              var featureResponseInstance = {};
-              result.features.push(featureResponseInstance);
-              
-              var nameValue = valueValue['name'];
-              if (nameValue !== null &amp;&amp; nameValue !== undefined) {
-                var nameInstance = nameValue;
-                featureResponseInstance.name = nameInstance;
-              }
-              
-              var propertiesValue = valueValue['properties'];
-              if (propertiesValue !== null &amp;&amp; propertiesValue !== undefined) {
-                var propertiesInstance = {};
-                featureResponseInstance.properties = propertiesInstance;
-                
-                var stateValue = propertiesValue['state'];
-                if (stateValue !== null &amp;&amp; stateValue !== undefined) {
-                  var stateInstance = stateValue;
-                  propertiesInstance.state = stateInstance;
-                }
-              }
+              var locationInstance = {};
+              result.locations.push(locationInstance);
               
               var idValue = valueValue['id'];
               if (idValue !== null &amp;&amp; idValue !== undefined) {
                 var idInstance = idValue;
-                featureResponseInstance.id = idInstance;
+                locationInstance.id = idInstance;
               }
               
-              var typeValue = valueValue['type'];
-              if (typeValue !== null &amp;&amp; typeValue !== undefined) {
-                var typeInstance = typeValue;
-                featureResponseInstance.type = typeInstance;
+              var subscriptionIdValue = valueValue['subscriptionId'];
+              if (subscriptionIdValue !== null &amp;&amp; subscriptionIdValue !== undefined) {
+                var subscriptionIdInstance = subscriptionIdValue;
+                locationInstance.subscriptionId = subscriptionIdInstance;
+              }
+              
+              var nameValue = valueValue['name'];
+              if (nameValue !== null &amp;&amp; nameValue !== undefined) {
+                var nameInstance = nameValue;
+                locationInstance.name = nameInstance;
+              }
+              
+              var displayNameValue = valueValue['displayName'];
+              if (displayNameValue !== null &amp;&amp; displayNameValue !== undefined) {
+                var displayNameInstance = displayNameValue;
+                locationInstance.displayName = displayNameInstance;
+              }
+              
+              var latitudeValue = valueValue['latitude'];
+              if (latitudeValue !== null &amp;&amp; latitudeValue !== undefined) {
+                var latitudeInstance = latitudeValue;
+                locationInstance.latitude = latitudeInstance;
+              }
+              
+              var longitudeValue = valueValue['longitude'];
+              if (longitudeValue !== null &amp;&amp; longitudeValue !== undefined) {
+                var longitudeInstance = longitudeValue;
+                locationInstance.longitude = longitudeInstance;
               }
             }
-          }
-          
-          var nextLinkValue = responseDoc['nextLink'];
-          if (nextLinkValue !== null &amp;&amp; nextLinkValue !== undefined) {
-            var nextLinkInstance = nextLinkValue;
-            result.nextLink = nextLinkInstance;
           }
         }
         
@@ -525,272 +493,46 @@ var Features = ( /** @lends Features */ function() {
     });
   };
   
+  return SubscriptionOperations;
+})();
+
+var TenantOperations = ( /** @lends TenantOperations */ function() {
   /**
-   * Gets a list of previewed features of a subscription.
+   * @class
+   * Operations for managing tenants.
+   * __NOTE__: An instance of this class is automatically created for an
+   * instance of the [SubscriptionClient] {@link
+   * SubscriptionClient~SubscriptionClient}.
+   * See [tenants] {@link SubscriptionClient~SubscriptionClient#tenants}.
+   * Initializes a new instance of the TenantOperations class.
+   * @constructor
    * 
-   * @param {string} nextLink NextLink from the previous successful call to
-   * List operation.
-   * 
-   * @param {function} callback
-   * 
-   * @returns {Stream} The response stream.
+   * @param {SubscriptionClient} client Reference to the service client.
    */
-  Features.prototype.listAllNext = function(nextLink, callback) {
-    if (callback === null || callback === undefined) {
-      throw new Error('callback cannot be null.');
-    }
-    // Validate
-    if (nextLink === null || nextLink === undefined) {
-      return callback(new Error('nextLink cannot be null.'));
-    }
-    
-    // Tracing
-    
-    // Construct URL
-    var url2 = '';
-    url2 = url2 + nextLink;
-    url2 = url2.replace(' ', '%20');
-    
-    // Create HTTP transport objects
-    var httpRequest = new WebResource();
-    httpRequest.method = 'GET';
-    httpRequest.headers = {};
-    httpRequest.url = url2;
-    
-    // Set Headers
-    httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
-    
-    // Send Request
-    return this.client.pipeline(httpRequest, function (err, response, body) {
-      if (err !== null &amp;&amp; err !== undefined) {
-        return callback(err);
-      }
-      var statusCode = response.statusCode;
-      if (statusCode !== 200) {
-        var error = new Error(body);
-        error.statusCode = response.statusCode;
-        return callback(error);
-      }
-      
-      // Create Result
-      var result = null;
-      // Deserialize Response
-      if (statusCode === 200) {
-        var responseContent = body;
-        result = { features: [] };
-        var responseDoc = null;
-        if (responseContent) {
-          responseDoc = JSON.parse(responseContent);
-        }
-        
-        if (responseDoc !== null &amp;&amp; responseDoc !== undefined) {
-          var valueArray = responseDoc['value'];
-          if (valueArray !== null &amp;&amp; valueArray !== undefined) {
-            for (var loweredIndex1 = 0; loweredIndex1 &lt; valueArray.length; loweredIndex1 = loweredIndex1 + 1) {
-              var valueValue = valueArray[loweredIndex1];
-              var featureResponseInstance = {};
-              result.features.push(featureResponseInstance);
-              
-              var nameValue = valueValue['name'];
-              if (nameValue !== null &amp;&amp; nameValue !== undefined) {
-                var nameInstance = nameValue;
-                featureResponseInstance.name = nameInstance;
-              }
-              
-              var propertiesValue = valueValue['properties'];
-              if (propertiesValue !== null &amp;&amp; propertiesValue !== undefined) {
-                var propertiesInstance = {};
-                featureResponseInstance.properties = propertiesInstance;
-                
-                var stateValue = propertiesValue['state'];
-                if (stateValue !== null &amp;&amp; stateValue !== undefined) {
-                  var stateInstance = stateValue;
-                  propertiesInstance.state = stateInstance;
-                }
-              }
-              
-              var idValue = valueValue['id'];
-              if (idValue !== null &amp;&amp; idValue !== undefined) {
-                var idInstance = idValue;
-                featureResponseInstance.id = idInstance;
-              }
-              
-              var typeValue = valueValue['type'];
-              if (typeValue !== null &amp;&amp; typeValue !== undefined) {
-                var typeInstance = typeValue;
-                featureResponseInstance.type = typeInstance;
-              }
-            }
-          }
-          
-          var nextLinkValue = responseDoc['nextLink'];
-          if (nextLinkValue !== null &amp;&amp; nextLinkValue !== undefined) {
-            var nextLinkInstance = nextLinkValue;
-            result.nextLink = nextLinkInstance;
-          }
-        }
-        
-      }
-      result.statusCode = statusCode;
-      result.requestId = response.headers['x-ms-request-id'];
-      
-      return callback(null, result);
-    });
-  };
+  function TenantOperations(client) {
+    this.client = client;
+  }
   
   /**
-   * Gets a list of previewed features of a resource provider.
-   * 
-   * @param {string} nextLink NextLink from the previous successful call to
-   * List operation.
+   * Gets a list of the tenantIds.
    * 
    * @param {function} callback
    * 
    * @returns {Stream} The response stream.
    */
-  Features.prototype.listNext = function(nextLink, callback) {
+  TenantOperations.prototype.list = function(callback) {
     if (callback === null || callback === undefined) {
       throw new Error('callback cannot be null.');
     }
     // Validate
-    if (nextLink === null || nextLink === undefined) {
-      return callback(new Error('nextLink cannot be null.'));
-    }
     
     // Tracing
     
     // Construct URL
     var url2 = '';
-    url2 = url2 + nextLink;
-    url2 = url2.replace(' ', '%20');
-    
-    // Create HTTP transport objects
-    var httpRequest = new WebResource();
-    httpRequest.method = 'GET';
-    httpRequest.headers = {};
-    httpRequest.url = url2;
-    
-    // Set Headers
-    httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
-    
-    // Send Request
-    return this.client.pipeline(httpRequest, function (err, response, body) {
-      if (err !== null &amp;&amp; err !== undefined) {
-        return callback(err);
-      }
-      var statusCode = response.statusCode;
-      if (statusCode !== 200) {
-        var error = new Error(body);
-        error.statusCode = response.statusCode;
-        return callback(error);
-      }
-      
-      // Create Result
-      var result = null;
-      // Deserialize Response
-      if (statusCode === 200) {
-        var responseContent = body;
-        result = { features: [] };
-        var responseDoc = null;
-        if (responseContent) {
-          responseDoc = JSON.parse(responseContent);
-        }
-        
-        if (responseDoc !== null &amp;&amp; responseDoc !== undefined) {
-          var valueArray = responseDoc['value'];
-          if (valueArray !== null &amp;&amp; valueArray !== undefined) {
-            for (var loweredIndex1 = 0; loweredIndex1 &lt; valueArray.length; loweredIndex1 = loweredIndex1 + 1) {
-              var valueValue = valueArray[loweredIndex1];
-              var featureResponseInstance = {};
-              result.features.push(featureResponseInstance);
-              
-              var nameValue = valueValue['name'];
-              if (nameValue !== null &amp;&amp; nameValue !== undefined) {
-                var nameInstance = nameValue;
-                featureResponseInstance.name = nameInstance;
-              }
-              
-              var propertiesValue = valueValue['properties'];
-              if (propertiesValue !== null &amp;&amp; propertiesValue !== undefined) {
-                var propertiesInstance = {};
-                featureResponseInstance.properties = propertiesInstance;
-                
-                var stateValue = propertiesValue['state'];
-                if (stateValue !== null &amp;&amp; stateValue !== undefined) {
-                  var stateInstance = stateValue;
-                  propertiesInstance.state = stateInstance;
-                }
-              }
-              
-              var idValue = valueValue['id'];
-              if (idValue !== null &amp;&amp; idValue !== undefined) {
-                var idInstance = idValue;
-                featureResponseInstance.id = idInstance;
-              }
-              
-              var typeValue = valueValue['type'];
-              if (typeValue !== null &amp;&amp; typeValue !== undefined) {
-                var typeInstance = typeValue;
-                featureResponseInstance.type = typeInstance;
-              }
-            }
-          }
-          
-          var nextLinkValue = responseDoc['nextLink'];
-          if (nextLinkValue !== null &amp;&amp; nextLinkValue !== undefined) {
-            var nextLinkInstance = nextLinkValue;
-            result.nextLink = nextLinkInstance;
-          }
-        }
-        
-      }
-      result.statusCode = statusCode;
-      result.requestId = response.headers['x-ms-request-id'];
-      
-      return callback(null, result);
-    });
-  };
-  
-  /**
-   * Registers for a previewed feature of a resource provider.
-   * 
-   * @param {string} resourceProviderNamespace Namespace of the resource
-   * provider.
-   * 
-   * @param {string} featureName Previewed feature name in the resource
-   * provider.
-   * 
-   * @param {function} callback
-   * 
-   * @returns {Stream} The response stream.
-   */
-  Features.prototype.register = function(resourceProviderNamespace, featureName, callback) {
-    if (callback === null || callback === undefined) {
-      throw new Error('callback cannot be null.');
-    }
-    // Validate
-    if (resourceProviderNamespace === null || resourceProviderNamespace === undefined) {
-      return callback(new Error('resourceProviderNamespace cannot be null.'));
-    }
-    if (featureName === null || featureName === undefined) {
-      return callback(new Error('featureName cannot be null.'));
-    }
-    
-    // Tracing
-    
-    // Construct URL
-    var url2 = '';
-    url2 = url2 + '/subscriptions/';
-    if (this.client.credentials.subscriptionId !== null &amp;&amp; this.client.credentials.subscriptionId !== undefined) {
-      url2 = url2 + encodeURIComponent(this.client.credentials.subscriptionId);
-    }
-    url2 = url2 + '/providers/Microsoft.Features/providers/';
-    url2 = url2 + encodeURIComponent(resourceProviderNamespace);
-    url2 = url2 + '/features/';
-    url2 = url2 + encodeURIComponent(featureName);
-    url2 = url2 + '/register';
+    url2 = url2 + '/tenants';
     var queryParameters = [];
-    queryParameters.push('api-version=2014-08-01-preview');
+    queryParameters.push('api-version=2014-04-01-preview');
     if (queryParameters.length > 0) {
       url2 = url2 + '?' + queryParameters.join('&amp;');
     }
@@ -807,12 +549,12 @@ var Features = ( /** @lends Features */ function() {
     
     // Create HTTP transport objects
     var httpRequest = new WebResource();
-    httpRequest.method = 'POST';
+    httpRequest.method = 'GET';
     httpRequest.headers = {};
     httpRequest.url = url2;
     
     // Set Headers
-    httpRequest.headers['Content-Type'] = 'application/json';
+    httpRequest.headers['Content-Type'] = 'application/json; charset=utf-8';
     
     // Send Request
     return this.client.pipeline(httpRequest, function (err, response, body) {
@@ -831,41 +573,32 @@ var Features = ( /** @lends Features */ function() {
       // Deserialize Response
       if (statusCode === 200) {
         var responseContent = body;
-        result = {};
+        result = { tenantIds: [] };
         var responseDoc = null;
         if (responseContent) {
           responseDoc = JSON.parse(responseContent);
         }
         
         if (responseDoc !== null &amp;&amp; responseDoc !== undefined) {
-          var nameValue = responseDoc['name'];
-          if (nameValue !== null &amp;&amp; nameValue !== undefined) {
-            var nameInstance = nameValue;
-            result.name = nameInstance;
-          }
-          
-          var propertiesValue = responseDoc['properties'];
-          if (propertiesValue !== null &amp;&amp; propertiesValue !== undefined) {
-            var propertiesInstance = {};
-            result.properties = propertiesInstance;
-            
-            var stateValue = propertiesValue['state'];
-            if (stateValue !== null &amp;&amp; stateValue !== undefined) {
-              var stateInstance = stateValue;
-              propertiesInstance.state = stateInstance;
+          var valueArray = responseDoc['value'];
+          if (valueArray !== null &amp;&amp; valueArray !== undefined) {
+            for (var loweredIndex1 = 0; loweredIndex1 &lt; valueArray.length; loweredIndex1 = loweredIndex1 + 1) {
+              var valueValue = valueArray[loweredIndex1];
+              var tenantIdDescriptionInstance = {};
+              result.tenantIds.push(tenantIdDescriptionInstance);
+              
+              var idValue = valueValue['id'];
+              if (idValue !== null &amp;&amp; idValue !== undefined) {
+                var idInstance = idValue;
+                tenantIdDescriptionInstance.id = idInstance;
+              }
+              
+              var tenantIdValue = valueValue['tenantId'];
+              if (tenantIdValue !== null &amp;&amp; tenantIdValue !== undefined) {
+                var tenantIdInstance = tenantIdValue;
+                tenantIdDescriptionInstance.tenantId = tenantIdInstance;
+              }
             }
-          }
-          
-          var idValue = responseDoc['id'];
-          if (idValue !== null &amp;&amp; idValue !== undefined) {
-            var idInstance = idValue;
-            result.id = idInstance;
-          }
-          
-          var typeValue = responseDoc['type'];
-          if (typeValue !== null &amp;&amp; typeValue !== undefined) {
-            var typeInstance = typeValue;
-            result.type = typeInstance;
           }
         }
         
@@ -877,7 +610,7 @@ var Features = ( /** @lends Features */ function() {
     });
   };
   
-  return Features;
+  return TenantOperations;
 })();
 </code></pre>
         </article>
@@ -891,7 +624,7 @@ var Features = ( /** @lends Features */ function() {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 02:06:14 GMT+0000 (UTC) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

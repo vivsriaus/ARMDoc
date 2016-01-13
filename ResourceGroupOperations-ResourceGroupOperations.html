@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ResourceOperations - Documentation</title>
+    <title>ResourceGroupOperations - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">ResourceOperations</h1>
+    <h1 class="page-title">ResourceGroupOperations</h1>
     
 
     
@@ -44,10 +44,10 @@
 <header>
     
         <h2>
-        ResourceOperations
+        ResourceGroupOperations
         </h2>
         
-            <div class="class-description"><p>Operations for managing resources.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [resources] {@link<br>ResourceManagementClient~ResourceManagementClient#resources}.<br>Initializes a new instance of the ResourceOperations class.</p></div>
+            <div class="class-description"><p>Operations for managing resource groups.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [resourceGroups] {@link<br>ResourceManagementClient~ResourceManagementClient#resourceGroups}.<br>Initializes a new instance of the ResourceGroupOperations class.</p></div>
         
     
 </header>
@@ -61,7 +61,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="ResourceOperations"><span class="type-signature"></span>new ResourceOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ResourceGroupOperations"><span class="type-signature"></span>new ResourceGroupOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
 
     
 
@@ -157,7 +157,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5281">line 5281</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4184">line 4184</a>
     </li></ul></dd>
     
 
@@ -206,14 +206,14 @@
 
     
 
-    <h4 class="name" id="beginMoving"><span class="type-signature"></span>beginMoving<span class="signature">(sourceResourceGroupName, parameters, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="beginDeleting"><span class="type-signature"></span>beginDeleting<span class="signature">(resourceGroupName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Begin moving resources.To determine whether the operation has finished<br>processing the request, call GetLongRunningOperationStatus.</p>
+    <p>Begin deleting resource group.To determine whether the operation has<br>finished processing the request, call GetLongRunningOperationStatus.</p>
 </div>
 
 
@@ -249,7 +249,7 @@
 
         <tr>
             
-                <td class="name"><code>sourceResourceGroupName</code></td>
+                <td class="name"><code>resourceGroupName</code></td>
             
 
             <td class="type">
@@ -265,124 +265,7 @@
 
             
 
-            <td class="description last"><p>Source resource group name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">ResourcesMoveInfo</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>move resources' parameters.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resources</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">IEnumerable</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the ids of the<br>resources.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetResourceGroup</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The target resource group.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>The name of the resource group to be<br>deleted. The name is case insensitive.</p></td>
         </tr>
 
     
@@ -446,7 +329,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5302">line 5302</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4199">line 4199</a>
     </li></ul></dd>
     
 
@@ -499,14 +382,14 @@
 
     
 
-    <h4 class="name" id="checkExistence"><span class="type-signature"></span>checkExistence<span class="signature">(resourceGroupName, identity, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="checkExistence"><span class="type-signature"></span>checkExistence<span class="signature">(resourceGroupName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Checks whether resource exists.</p>
+    <p>Checks whether resource group exists.</p>
 </div>
 
 
@@ -558,215 +441,7 @@
 
             
 
-            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>identity</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">ResourceIdentity</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Resource identity.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets namespace<br>of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource type.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderApiVersion</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets API<br>version of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parentResourcePath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets parent resource<br>path (optional).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>The name of the resource group to check.<br>The name is case insensitive.</p></td>
         </tr>
 
     
@@ -830,7 +505,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5441">line 5441</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4290">line 4290</a>
     </li></ul></dd>
     
 
@@ -883,14 +558,14 @@
 
     
 
-    <h4 class="name" id="createOrUpdate"><span class="type-signature"></span>createOrUpdate<span class="signature">(resourceGroupName, identity, parameters, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="createOrUpdate"><span class="type-signature"></span>createOrUpdate<span class="signature">(resourceGroupName, parameters, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Create a resource.</p>
+    <p>Create a resource group.</p>
 </div>
 
 
@@ -942,215 +617,7 @@
 
             
 
-            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>identity</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">ResourceIdentity</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Resource identity.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets namespace<br>of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource type.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderApiVersion</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets API<br>version of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parentResourcePath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets parent resource<br>path (optional).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>The name of the resource group to be<br>created or updated.</p></td>
         </tr>
 
     
@@ -1163,7 +630,7 @@
             <td class="type">
             
                 
-<span class="param-type">GenericResource</span>
+<span class="param-type">ResourceGroup</span>
 
 
             
@@ -1173,7 +640,7 @@
 
             
 
-            <td class="description last"><p>Create or update resource parameters.</p>
+            <td class="description last"><p>Parameters supplied to the create or<br>update resource group service operation.</p>
                 <h6>Properties</h6>
                 
 
@@ -1197,6 +664,37 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>location</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets the location of the<br>resource group. It cannot be changed after the resource group has been<br>created. Has to be one of the supported Azure Locations, such as West US,<br>East US, West Europe, East Asia, etc.</p></td>
+        </tr>
+
     
 
         <tr>
@@ -1227,264 +725,7 @@
 
             
 
-            <td class="description last"><p>Gets or sets the resource<br>properties.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>provisioningState</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource<br>provisioning state.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>plan</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Plan</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the plan of the resource.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the plan ID.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>publisher</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the publisher ID.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>product</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the offer ID.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>promotionCode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the promotion<br>code.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>location</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets the location of the<br>resource.</p></td>
+            <td class="description last"><p>Gets or sets the resource group<br>properties.</p></td>
         </tr>
 
     
@@ -1517,7 +758,40 @@
 
             
 
-            <td class="description last"><p>Gets or sets the tags attached to the<br>resource.</p></td>
+            <td class="description last"><p>Gets or sets the tags attached to the<br>resource group.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>provisioningState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets resource group<br>provisioning state.</p></td>
         </tr>
 
     
@@ -1588,7 +862,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5594">line 5594</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4393">line 4393</a>
     </li></ul></dd>
     
 
@@ -1641,14 +915,14 @@
 
     
 
-    <h4 class="name" id="deleteMethod"><span class="type-signature"></span>deleteMethod<span class="signature">(resourceGroupName, identity, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="deleteMethod"><span class="type-signature"></span>deleteMethod<span class="signature">(resourceGroupName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Delete resource and all of its resources.</p>
+    <p>Delete resource group and all of its resources.</p>
 </div>
 
 
@@ -1700,215 +974,7 @@
 
             
 
-            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>identity</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">ResourceIdentity</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Resource identity.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets namespace<br>of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource type.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderApiVersion</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets API<br>version of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parentResourcePath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets parent resource<br>path (optional).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>The name of the resource group to be<br>deleted. The name is case insensitive.</p></td>
         </tr>
 
     
@@ -1972,7 +1038,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5870">line 5870</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4572">line 4572</a>
     </li></ul></dd>
     
 
@@ -2025,14 +1091,14 @@
 
     
 
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resourceGroupName, identity, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resourceGroupName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Returns a resource belonging to a resource group.</p>
+    <p>Get a resource group.</p>
 </div>
 
 
@@ -2084,215 +1150,7 @@
 
             
 
-            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>identity</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">ResourceIdentity</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Resource identity.</p>
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets namespace<br>of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets resource type.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderApiVersion</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets API<br>version of the resource provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parentResourcePath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets parent resource<br>path (optional).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>The name of the resource group to get.<br>The name is case insensitive.</p></td>
         </tr>
 
     
@@ -2356,7 +1214,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5993">line 5993</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4627">line 4627</a>
     </li></ul></dd>
     
 
@@ -2416,7 +1274,7 @@
 
 
 <div class="description">
-    <p>Get all of the resources under a subscription.</p>
+    <p>Gets a collection of resource groups.</p>
 </div>
 
 
@@ -2460,7 +1318,7 @@
             <td class="type">
             
                 
-<span class="param-type">ResourceListParameters</span>
+<span class="param-type">ResourceGroupListParameters</span>
 
 
             
@@ -2480,7 +1338,7 @@
 
             
 
-            <td class="description last"><p>Query parameters.<br>If null is passed returns all resource groups.</p>
+            <td class="description last"><p>Query<br>parameters. If null is passed returns all resource groups.</p>
                 <h6>Properties</h6>
                 
 
@@ -2504,72 +1362,6 @@
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceGroupName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Gets or sets<br>resource resource group to filter by. Optional.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Filter the results for<br>a particular resource type. Optional.</p></td>
-        </tr>
-
     
 
         <tr>
@@ -2745,7 +1537,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6213">line 6213</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4780">line 4780</a>
     </li></ul></dd>
     
 
@@ -2921,7 +1713,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6420">line 6420</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line4944">line 4944</a>
     </li></ul></dd>
     
 
@@ -2974,14 +1766,14 @@
 
     
 
-    <h4 class="name" id="moveResources"><span class="type-signature"></span>moveResources<span class="signature">(sourceResourceGroupName, parameters, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="patch"><span class="type-signature"></span>patch<span class="signature">(resourceGroupName, parameters, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Move resources within or across subscriptions.</p>
+    <p>Resource groups can be updated through a simple PATCH operation to a group<br>address. The format of the request is the same as that for creating a<br>resource groups, though if a field is unspecified current value will be<br>carried over.</p>
 </div>
 
 
@@ -3017,7 +1809,7 @@
 
         <tr>
             
-                <td class="name"><code>sourceResourceGroupName</code></td>
+                <td class="name"><code>resourceGroupName</code></td>
             
 
             <td class="type">
@@ -3033,7 +1825,7 @@
 
             
 
-            <td class="description last"><p>Source resource group name.</p></td>
+            <td class="description last"><p>The name of the resource group to be<br>created or updated. The name is case insensitive.</p></td>
         </tr>
 
     
@@ -3046,7 +1838,7 @@
             <td class="type">
             
                 
-<span class="param-type">ResourcesMoveInfo</span>
+<span class="param-type">ResourceGroup</span>
 
 
             
@@ -3056,7 +1848,7 @@
 
             
 
-            <td class="description last"><p>move resources' parameters.</p>
+            <td class="description last"><p>Parameters supplied to the update state<br>resource group service operation.</p>
                 <h6>Properties</h6>
                 
 
@@ -3084,13 +1876,13 @@
 
         <tr>
             
-                <td class="name"><code>resources</code></td>
+                <td class="name"><code>location</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">IEnumerable</span>
+<span class="param-type">string</span>
 
 
             
@@ -3098,8 +1890,6 @@
 
             
                 <td class="attributes">
-                
-                    &lt;optional><br>
                 
 
                 
@@ -3110,14 +1900,14 @@
 
             
 
-            <td class="description last"><p>Gets or sets the ids of the<br>resources.</p></td>
+            <td class="description last"><p>Gets or sets the location of the<br>resource group. It cannot be changed after the resource group has been<br>created. Has to be one of the supported Azure Locations, such as West US,<br>East US, West Europe, East Asia, etc.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>targetResourceGroup</code></td>
+                <td class="name"><code>properties</code></td>
             
 
             <td class="type">
@@ -3143,7 +1933,73 @@
 
             
 
-            <td class="description last"><p>The target resource group.</p></td>
+            <td class="description last"><p>Gets or sets the resource group<br>properties.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tags</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets the tags attached to the<br>resource group.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>provisioningState</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets resource group<br>provisioning state.</p></td>
         </tr>
 
     
@@ -3214,7 +2070,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6593">line 6593</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line5095">line 5095</a>
     </li></ul></dd>
     
 
@@ -3280,7 +2136,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 02:06:14 GMT+0000 (UTC) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
