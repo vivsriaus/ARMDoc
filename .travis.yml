@@ -4,8 +4,6 @@ node_js:
 matrix:
   allow_failures: 
 before_install:
-- openssl aes-256-cbc -K $encrypted_661e73e75d1b_key -iv $encrypted_661e73e75d1b_iv
-  -in deployKey.txt.enc -out deployKey.txt -d
 - npm install -g npm@1.4.23
 - cd sdk/node
 - npm run-script setup
@@ -15,3 +13,6 @@ before_install:
 script:
 - grunt genDocs
 - grunt deploy
+env:
+  global:
+    secure: pnBTydXUkA2EEeSOpplbJg/mH63DtgJpWDmMRxeGikmfwdG7N1kt6FzTo4Btc/MJ6vq2EYBtGMP1zCtm5GP4N5LaY8KAqHdogWu6exAvSC0K5d96M7OF9ubP3cQYZH6Mz8Yua/fSWvOuCnbErYFA6nYEBRSzLmBh+eMNakDw7aHQxELWnienD5EE1HcmieP8xSKH/v/U+8Vq4gI9ObHFfnq7/qXmrjO+B4TSJQ3njWZaw8QDZ2x/vK9UFwiHJmVTs6s39XV5aDTD/Nbds+Z3XMA998nb19rOj14wcihSwK8W0erIw07l1iClosfFf5qxFGbqH/J6k5cZIUXo8BEKZeNwyCbhi/lftZfMx6zuJRGhhOY0jhb1CeYGZW8SLCmd3FPFfIalqnsA2KsxySWsys/QV2mcvv221lfNbHiF+fw4FyfnD2KIXZsUoCve0bmD7dE7znoBYbILa9/d943WKYH3eEXxvYL0qRSJDST17Em+aomUH70m6rQGC51UzsExg5OKMQ7rJpImwnYeUcfhUJgNg/9QzCiL3FpN6Raz1a092c2YHPH+4oQeu2s/ro7LnTL88RBPlRf9PwJYx2kvOMNBvtrTo87xTiNiPNp2ybGgln7Veq6n+6/GLUVXpBtlRuT64zX8JqYlb4ydNnHoVyshNjT5UcHEO8wvCQE/Zvs=
