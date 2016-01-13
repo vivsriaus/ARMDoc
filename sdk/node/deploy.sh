@@ -9,6 +9,9 @@ git config user.name "Vivek Srinivasan"
 git config user.email "vivsriaus@gmail.com"
 
 git remote add origin "https://$GH_TOKEN@github.com/vivsriaus/ARMDoc.git"
+git fetch origin && git reset origin/gh-pages
+
+
 #git checkout gh-pages
 #git pull upstream gh-pages
 
@@ -19,4 +22,4 @@ touch .
 git add -A .
 git commit -m "rebuild pages at ${rev}"
 git pull origin gh-pages
-git push origin gh-pages
+git push -q origin HEAD:gh-pages
