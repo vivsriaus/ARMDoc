@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ProviderOperations - Documentation</title>
+    <title>ResourceProviderOperationDetailsOperations - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">ProviderOperations</h1>
+    <h1 class="page-title">ResourceProviderOperationDetailsOperations</h1>
     
 
     
@@ -44,10 +44,10 @@
 <header>
     
         <h2>
-        ProviderOperations
+        ResourceProviderOperationDetailsOperations
         </h2>
         
-            <div class="class-description"><p>Operations for managing providers.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [providers] {@link<br>ResourceManagementClient~ResourceManagementClient#providers}.<br>Initializes a new instance of the ProviderOperations class.</p></div>
+            <div class="class-description"><p>Operations for managing Resource provider operations.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [resourceProviderOperationDetails] {@link<br>ResourceManagementClient~ResourceManagementClient#resourceProviderOperationDetails}.<br>Initializes a new instance of the<br>ResourceProviderOperationDetailsOperations class.</p></div>
         
     
 </header>
@@ -61,7 +61,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="ProviderOperations"><span class="type-signature"></span>new ProviderOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ResourceProviderOperationDetailsOperations"><span class="type-signature"></span>new ResourceProviderOperationDetailsOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
 
     
 
@@ -157,7 +157,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line2968">line 2968</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6656">line 6656</a>
     </li></ul></dd>
     
 
@@ -206,183 +206,7 @@
 
     
 
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resourceProviderNamespace, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Gets a resource provider.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Namespace of the resource<br>provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line2982">line 2982</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(parametersOrCallback<span class="signature-attributes">opt</span>, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(identity, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
@@ -413,8 +237,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -427,33 +249,23 @@
 
         <tr>
             
-                <td class="name"><code>parametersOrCallback</code></td>
+                <td class="name"><code>identity</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">ProviderListParameters</span>
+<span class="param-type">ResourceIdentity</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>Query parameters.<br>If null is passed returns all deployments.</p>
+            <td class="description last"><p>Resource identity.</p>
                 <h6>Properties</h6>
                 
 
@@ -481,13 +293,137 @@
 
         <tr>
             
-                <td class="name"><code>top</code></td>
+                <td class="name"><code>resourceName</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets resource name.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resourceProviderNamespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets namespace<br>of the resource provider.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resourceType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets resource type.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resourceProviderApiVersion</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Gets or sets API<br>version of the resource provider.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parentResourcePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
             
@@ -507,7 +443,7 @@
 
             
 
-            <td class="description last"><p>Get or sets the number of<br>records to return. Optional.</p></td>
+            <td class="description last"><p>Gets or sets parent resource<br>path (optional).</p></td>
         </tr>
 
     
@@ -515,190 +451,6 @@
 </table>
 
             </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3133">line 3133</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="listNext"><span class="type-signature"></span>listNext<span class="signature">(nextLink, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Get a list of deployments.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>nextLink</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>NextLink from the previous successful call to<br>List operation.</p></td>
         </tr>
 
     
@@ -762,359 +514,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3297">line 3297</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(resourceProviderNamespace, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Registers provider to be used with a subscription.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Namespace of the resource<br>provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3438">line 3438</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="unregister"><span class="type-signature"></span>unregister<span class="signature">(resourceProviderNamespace, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Unregisters provider from a subscription.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>resourceProviderNamespace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Namespace of the resource<br>provider.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line3587">line 3587</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6682">line 6682</a>
     </li></ul></dd>
     
 
@@ -1180,7 +580,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 18:44:16 GMT+0000 (UTC) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

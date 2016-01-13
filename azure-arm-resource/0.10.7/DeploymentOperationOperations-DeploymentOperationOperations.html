@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>TagOperations - Documentation</title>
+    <title>DeploymentOperationOperations - Documentation</title>
     <meta name="viewport" content="initial-scale=.75">
     <script src="../../scripts/prettify/prettify.js"></script>
     <script src="../../scripts/prettify/lang-css.js"></script>
@@ -31,7 +31,7 @@
       <a class="github-banner" href="https://github.com/azure/azure-sdk-for-node.git"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     
     
-    <h1 class="page-title">TagOperations</h1>
+    <h1 class="page-title">DeploymentOperationOperations</h1>
     
 
     
@@ -44,10 +44,10 @@
 <header>
     
         <h2>
-        TagOperations
+        DeploymentOperationOperations
         </h2>
         
-            <div class="class-description"><p>Operations for managing tags.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [tags] <a href="ResourceManagementClient-ResourceManagementClient.html#tags"><code>ResourceManagementClient~ResourceManagementClient#tags</code></a>.<br>Initializes a new instance of the TagOperations class.</p></div>
+            <div class="class-description"><p>Operations for managing deployment operations.<br><strong>NOTE</strong>: An instance of this class is automatically created for an<br>instance of the [ResourceManagementClient] {@link<br>ResourceManagementClient~ResourceManagementClient}.<br>See [deploymentOperations] {@link<br>ResourceManagementClient~ResourceManagementClient#deploymentOperations}.<br>Initializes a new instance of the DeploymentOperationOperations class.</p></div>
         
     
 </header>
@@ -61,7 +61,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="TagOperations"><span class="type-signature"></span>new TagOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="DeploymentOperationOperations"><span class="type-signature"></span>new DeploymentOperationOperations<span class="signature">(client)</span><span class="type-signature"></span></h4>
 
     
 
@@ -157,7 +157,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6835">line 6835</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -206,14 +206,14 @@
 
     
 
-    <h4 class="name" id="createOrUpdate"><span class="type-signature"></span>createOrUpdate<span class="signature">(tagName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resourceGroupName, deploymentName, operationId, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Create a subscription resource tag.</p>
+    <p>Get a list of deployments operations.</p>
 </div>
 
 
@@ -249,7 +249,7 @@
 
         <tr>
             
-                <td class="name"><code>tagName</code></td>
+                <td class="name"><code>resourceGroupName</code></td>
             
 
             <td class="type">
@@ -265,7 +265,53 @@
 
             
 
-            <td class="description last"><p>The name of the tag.</p></td>
+            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>deploymentName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of the deployment.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>operationId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Operation Id.</p></td>
         </tr>
 
     
@@ -329,7 +375,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line6848">line 6848</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line240">line 240</a>
     </li></ul></dd>
     
 
@@ -382,14 +428,14 @@
 
     
 
-    <h4 class="name" id="createOrUpdateValue"><span class="type-signature"></span>createOrUpdateValue<span class="signature">(tagName, tagValue, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
+    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(resourceGroupName, deploymentName, parametersOrCallback<span class="signature-attributes">opt</span>, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Create a subscription resource tag value.</p>
+    <p>Gets a list of deployments operations.</p>
 </div>
 
 
@@ -413,6 +459,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -425,7 +473,7 @@
 
         <tr>
             
-                <td class="name"><code>tagName</code></td>
+                <td class="name"><code>resourceGroupName</code></td>
             
 
             <td class="type">
@@ -438,17 +486,25 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>The name of the tag.</p></td>
+            <td class="description last"><p>The name of the resource group. The name<br>is case insensitive.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>tagValue</code></td>
+                <td class="name"><code>deploymentName</code></td>
             
 
             <td class="type">
@@ -461,10 +517,112 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>The value of the tag.</p></td>
+            <td class="description last"><p>The name of the deployment.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>parametersOrCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DeploymentOperationsListParameters</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Query<br>parameters.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>top</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Get or sets the number of<br>records to return. Optional.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -483,6 +641,14 @@
             
             </td>
 
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -528,535 +694,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7008">line 7008</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="deleteMethod"><span class="type-signature"></span>deleteMethod<span class="signature">(tagName, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Delete a subscription resource tag.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>tagName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the tag.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7132">line 7132</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="deleteValue"><span class="type-signature"></span>deleteValue<span class="signature">(tagName, tagValue, callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Delete a subscription resource tag value.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>tagName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The name of the tag.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tagValue</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The value of the tag.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7210">line 7210</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The response stream.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Stream</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(callback)</span><span class="type-signature"> &rarr; {Stream}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Get a list of subscription resource tags.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7289">line 7289</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line420">line 420</a>
     </li></ul></dd>
     
 
@@ -1116,7 +754,7 @@
 
 
 <div class="description">
-    <p>Get a list of tags under a subscription.</p>
+    <p>Gets a next list of deployments operations.</p>
 </div>
 
 
@@ -1232,7 +870,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line7456">line 7456</a>
+        <a href="resourceManagementClient.js.html">resourceManagementClient.js</a>, <a href="resourceManagementClient.js.html#line608">line 608</a>
     </li></ul></dd>
     
 
@@ -1298,7 +936,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jan 12 2016 17:04:51 GMT-0800 (Pacific Standard Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 13 2016 18:44:16 GMT+0000 (UTC) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
