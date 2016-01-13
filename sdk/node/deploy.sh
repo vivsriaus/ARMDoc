@@ -23,3 +23,9 @@ git add -A .
 git commit -m "rebuild pages at ${rev}"
 git pull origin gh-pages
 git push -q origin HEAD:gh-pages
+
+#install mono
+curl -s http://download.mono-project.com/repo/xamarin.gpg | sudo apt-key add -
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/xamarin.list
+sudo apt-get update
+sudo apt-get -y install mono-complete
