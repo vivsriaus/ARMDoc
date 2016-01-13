@@ -12,7 +12,7 @@ git remote add origin "https://$GH_TOKEN@github.com/vivsriaus/ARMDoc.git"
 git fetch origin && git reset origin/gh-pages
 
 
-#git checkout gh-pages
+#git checkout gh-pages 
 #git pull upstream gh-pages
 
 # echo "example.com" > CNAME
