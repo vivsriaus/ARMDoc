@@ -1,27 +1,39 @@
-language: node_js
-sudo: required
-node_js:
-- '0.12'
-matrix:
-  allow_failures: 
-before_install:
-- "curl -s http://download.mono-project.com/repo/xamarin.gpg | sudo apt-key add -" 
-#- echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/xamarin.list
-#- echo "deb http://download.mono-project.com/repo/debian wheezy-libjpeg62-compat main" | sudo tee -a /etc/apt/sources.list.d/mono-xamarin.list
-- echo "deb http://download.mono-project.com/repo/debian wheezy-libtiff-compat main" | sudo tee -a /etc/apt/sources.list.d/mono-xamarin.list
-- sudo apt-get update
-- sudo apt-get install mono-devel
-- sudo apt-get -y install mono-complete
-- npm install -g npm@1.4.23
-- cd sdk/node
-- npm run-script setup
-- npm install
-- npm install -g grunt-cli
-- npm install grunt --save-dev
+language: csharp
+sudo: false
+mono:
+  - beta
+addons:
+  apt:
+    packages:
+    # Packages required for android build
+    - libc6-i386
+    - lib32stdc++6
+    - lib32gcc1
+    - lib32ncurses5
+    - lib32z1
+install:
+  # Install libunwind required for DNX
+  - wget http://download.savannah.gnu.org/releases/libunwind/libunwind-1.1.tar.gz
+  - tar xzvf libunwind-1.1.tar.gz
+  - libunwind-1.1/configure --prefix=$HOME/.local
+  - make && make install
+  - export LD_LIBRARY_PATH=$HOME/.local/lib/:$LD_LIBRARY_PATH
+  # Install npm
+  - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | sh && source ~/.dnx/dnvm/dnvm.sh && dnvm upgrade
+  - npm install -g npm@'>=1.4.3'
+  - npm install
+  - cd sdk/node
+  - npm run-script setup
+  - npm install
+  - npm install -g grunt-cli
+  - npm install grunt --save-dev
 script:
-- grunt genDocs
-- bash deploy.sh
+  - dnvm install 1.0.0-rc1-final -r mono
+  - dnvm install 1.0.0-rc1-final -r coreclr
+  - dnvm use 1.0.0-rc1-final -r coreclr -persistent
+  #- gulp
+  - grunt genDocs
+  - bash deploy.sh
 env:
   global:
     secure: ZlFb1c7WJvxQD7ErzjZ58UKbu27avP6ZWpiFbZ51K75Pw7vSe4RWthb91DmDPTgS/ALpcBxa1FfAz5aQZ9w9oAuJd4uSmbj2nTCpc+/HA+/l+ilsITmcAFhkuQ8fsQUDKK1DxrP6iYBukUTA2SD081xWCZ4c36OFZevc+4Z33aZ51PCZs+44BmLqjhTuJbauTZubsi6nbPglNJvOd1cJqeOcpTkjIpbwvyZAx8sZWc10YyrBBe+Eiun4t8w+6PS/djGjpCKvGI2Ll408Tm7DXcu8N0XEYz+nVJuEMIhuSD3UwKx/c6rqUvv1FACDQdiGwPRVSKvE5PFMcTZPVxWBcbe4mjAc0YdODG+OJZBa/ut6luWysrU8H39kh3bKwX6f1pNWoHxxW5hvqTEs1pVtF079CtuGDz17zBSyG3AQVyCjDe+pu+lA3bcNnCuLgR3auO1mL6V/TAUG9tqzTDzcrxT65NrOwmlb2aYdJrBFaYN75zQZkKti5jFthbmOugPJzynW59iEXOZLy3efl6J84Qed7k1btUzJptkQlPgjSL5/O5b5gl7RKyH4lM0xPARxBcfzUcb/huFywoOlyIl0Ka2swSiukZQFYtK1x8vs8VHIF+LHJYfaKt6RlbSaHpoAqmB+IL5Vo10MJzmZFHEXb8oo2tPx37RzUzsdp7vID70=
-  
