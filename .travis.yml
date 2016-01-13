@@ -12,9 +12,10 @@ before_install:
 - npm install grunt --save-dev
 install:
 #- curl -s http://download.mono-project.com/repo/xamarin.gpg | sudo apt-key add -
-#- echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/xamarin.list
-#- sudo apt-get update
-#- sudo apt-get -y install mono-complete
+- "curl -s http://download.mono-project.com/repo/xamarin.gpg | apt-key add -"
+- echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/xamarin.list
+- apt-get update
+- apt-get -y install mono-complete
 script:
 - grunt genDocs
 - bash deploy.sh
