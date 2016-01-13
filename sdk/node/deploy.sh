@@ -16,6 +16,7 @@ git checkout --orphan gh-pages
 
 touch .
 
+git pull origin gh-pages
 git add -A .
 git commit -m "rebuild pages at ${rev}"
 git push origin gh-pages
