@@ -85,7 +85,7 @@ module.exports = function(grunt) {
   };
 
   var packagesLatestSymlinkMapping = Object.keys(packageVersions).map(function(name){
-    return {src: path.join('docs', name, packageVersions[name].version), dest: path.join('docs', name, 'latest')};
+    return {src: path.join('_site', name, packageVersions[name].version), dest: path.join('_site', name, 'latest')};
   });
 
   symlinkConfig = {
