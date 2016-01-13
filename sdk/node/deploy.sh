@@ -9,7 +9,7 @@ git config user.name "Vivek Srinivasan"
 git config user.email "vivsriaus@gmail.com"
 
 git remote add upstream "https://$GH_TOKEN@github.com/vivsriaus/ARMDoc.git"
-git fetch upstream && git reset upstream/gh-pages
+git fetch upstream gh-pages
 
 # echo "example.com" > CNAME
 
