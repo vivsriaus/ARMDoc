@@ -36,6 +36,9 @@ script:
   - pwd
   - ls -al
   - npm install gulp
+  - npm install yargs
+  - npm install colors
+  - npm install child_process
   - gulp codegen --spec-root swagger
   - cd sdk/node
   - ls -al
