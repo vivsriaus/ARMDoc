@@ -5,8 +5,20 @@ var exec = require('child_process').exec;
 
 var dotnetMappings = {
   'resource': {
-    'dir': 'src/ResourceManagement/Resource',
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager',
     'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
+  },
+  'resource.subscription': {
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager',
+    'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
+  },
+  'resource.authorization': {
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager',
+    'source': 'arm-resource/authorization/2015-01-01/authorization.json'
+  },
+  'resource.feature': {
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager',
+    'source': 'arm-resource/features/2014-08-01-preview/features.json'
   }
 };
 
@@ -47,7 +59,7 @@ gulp.task('codegen', function(cb) {
 var codegen = function(project, cb) {
   console.log('Generating "' + project + '" from spec file ' + specRoot + '/' + dotnetMappings[project].source);
   cmd = autoRestExe + ' -Modeler Swagger -CodeGenerator Azure.CSharp' + ' -Input ' + specRoot + '/' + dotnetMappings[project].source + 
-    ' -outputDirectory src/ResourceManagement/' + dotnetMappings[project].dir + ' -Namespace Microsoft.Azure.Management.Resources' + ' -Header MICROSOFT_MIT';
+    ' -outputDirectory src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager' + dotnetMappings[project].dir + ' -Namespace Microsoft.Azure.Management.Resources' + ' -Header MICROSOFT_MIT';
   if (dotnetMappings[project].ft !== null && dotnetMappings[project].ft !== undefined) cmd += ' -FT ' + dotnetMappings[project].ft;
   if (dotnetMappings[project].args !== undefined) {
     cmd = cmd + ' ' + args;

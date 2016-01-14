@@ -37,12 +37,13 @@ script:
   #- gulp  
   - pwd
   - ls -al
-  - gulp codegen --spec-root ../../swagger/
+  - gulp codegen --spec-root ../../swagger
   - grunt genDocs
   - bash deploy.sh
   - cd ../dotnet
   - ls -al
-  - gulp codegen --spec-root ../../swagger/
+  - gulp codegen --spec-root ../../swagger
+  - ls -al src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
 env:
   global:
     secure: ZlFb1c7WJvxQD7ErzjZ58UKbu27avP6ZWpiFbZ51K75Pw7vSe4RWthb91DmDPTgS/ALpcBxa1FfAz5aQZ9w9oAuJd4uSmbj2nTCpc+/HA+/l+ilsITmcAFhkuQ8fsQUDKK1DxrP6iYBukUTA2SD081xWCZ4c36OFZevc+4Z33aZ51PCZs+44BmLqjhTuJbauTZubsi6nbPglNJvOd1cJqeOcpTkjIpbwvyZAx8sZWc10YyrBBe+Eiun4t8w+6PS/djGjpCKvGI2Ll408Tm7DXcu8N0XEYz+nVJuEMIhuSD3UwKx/c6rqUvv1FACDQdiGwPRVSKvE5PFMcTZPVxWBcbe4mjAc0YdODG+OJZBa/ut6luWysrU8H39kh3bKwX6f1pNWoHxxW5hvqTEs1pVtF079CtuGDz17zBSyG3AQVyCjDe+pu+lA3bcNnCuLgR3auO1mL6V/TAUG9tqzTDzcrxT65NrOwmlb2aYdJrBFaYN75zQZkKti5jFthbmOugPJzynW59iEXOZLy3efl6J84Qed7k1btUzJptkQlPgjSL5/O5b5gl7RKyH4lM0xPARxBcfzUcb/huFywoOlyIl0Ka2swSiukZQFYtK1x8vs8VHIF+LHJYfaKt6RlbSaHpoAqmB+IL5Vo10MJzmZFHEXb8oo2tPx37RzUzsdp7vID70=
