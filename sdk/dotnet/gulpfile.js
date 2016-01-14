@@ -23,11 +23,11 @@ gulp.task('default', function() {
 var specRoot = args['spec-root'] || "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master";
 var project = args['project'];
 var autoRestVersion = '0.14.0-Nightly20160112';
-var autoRestExe = 'mono packages/autorest.' + autoRestVersion + '/tools/AutoRest.exe';
+var autoRestExe = 'mono ../../packages/autorest.' + autoRestVersion + '/tools/AutoRest.exe';
 var nugetSource = 'https://www.myget.org/F/autorest/api/v2';
 
 gulp.task('codegen', function(cb) {
-  exec('mono autoresttools/NuGet.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
+  exec('mono ../../autoresttools/NuGet.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
     console.log(stdout);
     console.error(stderr);
     if (project === undefined) {
