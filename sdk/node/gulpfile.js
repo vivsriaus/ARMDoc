@@ -39,7 +39,7 @@ var autoRestExe = 'packages/autorest.' + autoRestVersion + '/tools/AutoRest.exe'
 var nugetSource = 'https://www.myget.org/F/autorest/api/v2';
 
 gulp.task('codegen', function(cb) {
-  exec('tools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
+  exec('autoresttools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
     console.log(stdout);
     console.error(stderr);
     if (project === undefined) {
