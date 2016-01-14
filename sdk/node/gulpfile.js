@@ -6,19 +6,19 @@ var exec = require('child_process').exec;
 var mappings = {
   'resource': {
     'dir': 'resourceManagement/lib/resource',
-    'source': 'arm-resources/resources/2014-04-01-preview/swagger/resources.json'
+    'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
   },
   'resource.subscription': {
     'dir': 'resourceManagement/lib/subscription',
-    'source': 'arm-resources/subscriptions/2014-04-01-preview/swagger/subscriptions.json'
+    'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
   },
   'resource.authorization': {
     'dir': 'resourceManagement/lib/authorization',
-    'source': 'arm-resources/authorization/2015-01-01/swagger/authorization.json'
+    'source': 'arm-resource/authorization/2015-01-01/authorization.json'
   },
   'resource.feature': {
     'dir': 'resourceManagement/lib/feature',
-    'source': 'arm-resources/features/2014-08-01-preview/swagger/features.json'
+    'source': 'arm-resource/features/2014-08-01-preview/features.json'
   }
 };
 
