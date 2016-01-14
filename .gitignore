@@ -37,4 +37,4 @@ sdk/node/child.conf.json
 
 # Nuget packages and corresponding codegen sources 
 .nuget
-packages
+#packages
