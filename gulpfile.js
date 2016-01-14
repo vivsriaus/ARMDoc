@@ -3,21 +3,40 @@ var args = require('yargs').argv;
 var colors = require('colors');
 var exec = require('child_process').exec;
 
-var mappings = {
+var nodeMappings = {
   'resource': {
-    'dir': 'resourceManagement/lib/resource',
+    'dir': 'sdk/node/resourceManagement/lib/resource',
     'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
   },
   'resource.subscription': {
-    'dir': 'resourceManagement/lib/subscription',
+    'dir': 'sdk/node/resourceManagement/lib/subscription',
     'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
   },
   'resource.authorization': {
-    'dir': 'resourceManagement/lib/authorization',
+    'dir': 'sdk/node/resourceManagement/lib/authorization',
     'source': 'arm-resource/authorization/2015-01-01/authorization.json'
   },
   'resource.feature': {
-    'dir': 'resourceManagement/lib/feature',
+    'dir': 'sdk/node/resourceManagement/lib/feature',
+    'source': 'arm-resource/features/2014-08-01-preview/features.json'
+  }
+};
+
+var dotnetMappings = {
+  'resource': {
+    'dir': 'sdk/dotnet/src/ResourceManagement/Resource',
+    'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
+  },
+  'resource.subscription': {
+    'dir': 'sdk/dotnet/ResourceManagement/lib/subscription',
+    'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
+  },
+  'resource.authorization': {
+    'dir': 'sdk/dotnet/ResourceManagement/lib/authorization',
+    'source': 'arm-resource/authorization/2015-01-01/authorization.json'
+  },
+  'resource.feature': {
+    'dir': 'sdk/dotnet/ResourceManagement/lib/feature',
     'source': 'arm-resource/features/2014-08-01-preview/features.json'
   }
 };
@@ -27,7 +46,7 @@ gulp.task('default', function() {
   console.log("--spec-root");
   console.log("\tRoot location of Swagger API specs, default value is \"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master\"");
   console.log("--project\n\tProject to regenerate, default is all. List of available project names:");
-  Object.keys(mappings).forEach(function(i) {
+  Object.keys(nodeMappings).forEach(function(i) {
       console.log('\t' + i.magenta);
   });
 });
@@ -39,15 +58,15 @@ var autoRestExe = 'mono packages/autorest.' + autoRestVersion + '/tools/AutoRest
 var nugetSource = 'https://www.myget.org/F/autorest/api/v2';
 
 gulp.task('codegen', function(cb) {
-  exec('autoresttools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
+  exec('mono sd/node/autoresttools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
     console.log(stdout);
     console.error(stderr);
     if (project === undefined) {
-      Object.keys(mappings).forEach(function(proj) {
+      Object.keys(nodeMappings).forEach(function(proj) {
         codegen(proj, cb);
       });
     } else {
-      if (mappings[project] === undefined) {
+      if (nodeMappings[project] === undefined) {
         console.error('Invalid project name "' + project + '"!');
         process.exit(1);
       }
@@ -57,11 +76,11 @@ gulp.task('codegen', function(cb) {
 });
 
 var codegen = function(project, cb) {
-  console.log('Generating "' + project + '" from spec file ' + specRoot + '/' + mappings[project].source);
-  cmd = autoRestExe + ' -Modeler Swagger -CodeGenerator Azure.NodeJS' + ' -Input ' + specRoot + '/' + mappings[project].source + 
-    ' -outputDirectory lib/services/' + mappings[project].dir + ' -Header MICROSOFT_MIT';
-  if (mappings[project].ft !== null && mappings[project].ft !== undefined) cmd += ' -FT ' + mappings[project].ft;
-  if (mappings[project].args !== undefined) {
+  console.log('Generating "' + project + '" from spec file ' + specRoot + '/' + nodeMappings[project].source);
+  cmd = autoRestExe + ' -Modeler Swagger -CodeGenerator Azure.NodeJS' + ' -Input ' + specRoot + '/' + nodeMappings[project].source + 
+    ' -outputDirectory lib/services/' + nodeMappings[project].dir + ' -Header MICROSOFT_MIT';
+  if (nodeMappings[project].ft !== null && nodeMappings[project].ft !== undefined) cmd += ' -FT ' + nodeMappings[project].ft;
+  if (nodeMappings[project].args !== undefined) {
     cmd = cmd + ' ' + args;
   }
   exec(cmd, function(err, stdout, stderr) {
