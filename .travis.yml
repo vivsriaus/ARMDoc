@@ -34,7 +34,7 @@ script:
   #- gulp  
   - pwd
   - ls -al
-  - gulp codegen --spec-root swagger
+  - gulp codegen --spec-root ../../swagger/
   - grunt genDocs
   - bash deploy.sh
 env:
