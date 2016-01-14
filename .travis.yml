@@ -43,7 +43,7 @@ script:
   - cd ../dotnet
   - ls -al
   - gulp codegen --spec-root ../../swagger
-  - ls -al
+  - ls -alR
   - find . -name '*.cs'
   - ls -al src/ResourceManagement/Resource
 env:
