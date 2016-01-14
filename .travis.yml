@@ -35,6 +35,7 @@ script:
   - pwd
   - ls -l
   - ls -al packages/autorest.0.14.0-Nightly20160112/tools
+  - which mono
   - gulp codegen --spec-root ../../swagger
   - grunt genDocs
   - bash deploy.sh
