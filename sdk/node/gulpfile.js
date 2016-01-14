@@ -5,38 +5,19 @@ var exec = require('child_process').exec;
 
 var nodeMappings = {
   'resource': {
-    'dir': 'sdk/node/resourceManagement/lib/resource',
+    'dir': 'resourceManagement/lib/resource',
     'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
   },
   'resource.subscription': {
-    'dir': 'sdk/node/resourceManagement/lib/subscription',
+    'dir': 'resourceManagement/lib/subscription',
     'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
   },
   'resource.authorization': {
-    'dir': 'sdk/node/resourceManagement/lib/authorization',
+    'dir': 'resourceManagement/lib/authorization',
     'source': 'arm-resource/authorization/2015-01-01/authorization.json'
   },
   'resource.feature': {
-    'dir': 'sdk/node/resourceManagement/lib/feature',
-    'source': 'arm-resource/features/2014-08-01-preview/features.json'
-  }
-};
-
-var dotnetMappings = {
-  'resource': {
-    'dir': 'sdk/dotnet/src/ResourceManagement/Resource',
-    'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
-  },
-  'resource.subscription': {
-    'dir': 'sdk/dotnet/ResourceManagement/lib/subscription',
-    'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
-  },
-  'resource.authorization': {
-    'dir': 'sdk/dotnet/ResourceManagement/lib/authorization',
-    'source': 'arm-resource/authorization/2015-01-01/authorization.json'
-  },
-  'resource.feature': {
-    'dir': 'sdk/dotnet/ResourceManagement/lib/feature',
+    'dir': 'resourceManagement/lib/feature',
     'source': 'arm-resource/features/2014-08-01-preview/features.json'
   }
 };
@@ -58,7 +39,7 @@ var autoRestExe = 'mono packages/autorest.' + autoRestVersion + '/tools/AutoRest
 var nugetSource = 'https://www.myget.org/F/autorest/api/v2';
 
 gulp.task('codegen', function(cb) {
-  exec('mono sd/node/autoresttools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
+  exec('mono autoresttools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
     console.log(stdout);
     console.error(stderr);
     if (project === undefined) {

@@ -32,16 +32,9 @@ script:
   - dnvm install 1.0.0-rc1-final -r coreclr
   - dnvm use 1.0.0-rc1-final -r coreclr -persistent
   #- gulp  
-  - cd ../..
   - pwd
   - ls -al
-  - npm install gulp
-  - npm install yargs
-  - npm install colors
-  - npm install child_process
   - gulp codegen --spec-root swagger
-  - cd sdk/node
-  - ls -al
   - grunt genDocs
   - bash deploy.sh
 env:
