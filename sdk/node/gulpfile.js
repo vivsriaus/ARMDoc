@@ -39,7 +39,7 @@ var autoRestExe = 'mono ../../packages/autorest.' + autoRestVersion + '/tools/Au
 var nugetSource = 'https://www.myget.org/F/autorest/api/v2';
 
 gulp.task('codegen', function(cb) {
-  exec('mono ../../autoresttools/nuget.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
+  exec('mono ../../autoresttools/NuGet.exe install autorest -Source ' + nugetSource + ' -Version ' + autoRestVersion + ' -o packages', function(err, stdout, stderr) {
     console.log(stdout);
     console.error(stderr);
     if (project === undefined) {
