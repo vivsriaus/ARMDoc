@@ -1,0 +1,66 @@
+{
+  "name": "azure",
+  "author": "Microsoft Corporation",
+  "contributors": [
+    "Block, Glenn <gblock@microsoft.com>",
+    "Cowlishaw, Mark <markcowl@microsoft.com>",
+    "Dejardin, Louis <loudej@microsoft.com>",
+    "Georgiev, Yavor <yavorg@microsoft.com>",
+    "Janczuk, Tomasz <tjanczuk@microsoft.com>",
+    "Rodrigues, Andre <andrerod@microsoft.com>",
+    "Tavares, Chris <ctavares@microsoft.com>",
+    "Zavery, Amar <amzavery@microsoft.com>", 
+    "Wang, Yugang <yugangw@microsoft.com>",
+    "Mkrtchyan, Hovsep <hovsepm@microsoft.com>",
+    "Lu, Jianghao <jianghlu@microsoft.com>"
+  ],
+  "version": "1.0.0-preview",
+  "description": "Microsoft Azure Client Library for .NET",
+  "tags": [
+    "azure",
+    "sdk"
+  ],
+  "keywords": [
+    "node",
+    "azure"
+  ],
+  "main": "./lib/azure.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mime": "~1.2.4",
+    "underscore": "1.4.x",
+    "request": "2.52.0",
+    "node-uuid": "~1.4",
+    "ms-rest-azure": "^1.6.0",
+    "ms-rest": "^1.6.0"
+  },
+  "devDependencies": {    
+    "gulp": "^3.9.0",
+    "gulp-exec": "2.1.2",
+    "yargs": "3.29.0",    
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-symlink": "^0.3.0",
+    "grunt-devserver": "~0.6",
+    "grunt-jsdoc": "~0.6"
+  },
+  "homepage": "http://github.com/azure/azure-sdk-for-net",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azure/azure-sdk-for-net.git"
+  },
+  "bugs": {
+    "url": "http://github.com/Azure/azure-sdk-for-net/issues"
+  },
+  "scripts": {
+    "test": "grunt genDocs", 
+    "unit": "grunt deploy",
+    "setup": "node scripts/setup.js",
+    "jshint": "jshint lib --reporter=jslint",
+    "ci": "node scripts/unit.js testlist.txt",
+    "coverage": "node scripts/unit.js testlist.txt -coverage > coverage.html"
+  }
+}
