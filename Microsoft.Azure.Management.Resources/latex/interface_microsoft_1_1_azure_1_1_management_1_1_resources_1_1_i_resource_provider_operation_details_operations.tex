@@ -1,0 +1,78 @@
+\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations}{}\section{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Provider\+Operation\+Details\+Operations Interface Reference}
+\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations}\index{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Provider\+Operation\+Details\+Operations@{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Provider\+Operation\+Details\+Operations}}
+
+
+Resource\+Provider\+Operation\+Details\+Operations operations.  
+
+
+
+
+Inherited by Microsoft.\+Azure.\+Management.\+Resources.\+Resource\+Provider\+Operation\+Details\+Operations.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Resource\+Provider\+Operation\+Definition $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations_aa96a381f62b0aa608a84a6b347167ee9}{List\+With\+Http\+Messages\+Async} (string resource\+Provider\+Namespace, string api\+Version, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets a list of resource providers. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Resource\+Provider\+Operation\+Definition $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations_aad57181801ce966de4020eea5cd96d27}{List\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets a list of resource providers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Resource\+Provider\+Operation\+Details\+Operations operations. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations}!List\+Next\+With\+Http\+Messages\+Async@{List\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+Next\+With\+Http\+Messages\+Async@{List\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations}}
+\subsubsection[{\texorpdfstring{List\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Resource\+Provider\+Operation\+Definition$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Provider\+Operation\+Details\+Operations.\+List\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations_aad57181801ce966de4020eea5cd96d27}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations_aad57181801ce966de4020eea5cd96d27}
+
+
+Gets a list of resource providers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations}!List\+With\+Http\+Messages\+Async@{List\+With\+Http\+Messages\+Async}}
+\index{List\+With\+Http\+Messages\+Async@{List\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Provider\+Operation\+Details\+Operations}}
+\subsubsection[{\texorpdfstring{List\+With\+Http\+Messages\+Async(string resource\+Provider\+Namespace, string api\+Version, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListWithHttpMessagesAsync(string resourceProviderNamespace, string apiVersion, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Resource\+Provider\+Operation\+Definition$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Provider\+Operation\+Details\+Operations.\+List\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Provider\+Namespace, }
+\item[{string}]{api\+Version, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations_aa96a381f62b0aa608a84a6b347167ee9}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_provider_operation_details_operations_aa96a381f62b0aa608a84a6b347167ee9}
+
+
+Gets a list of resource providers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Provider\+Namespace} & Resource identity. \\
+\hline
+{\em api\+Version} & \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+files/I\+Resource\+Provider\+Operation\+Details\+Operations.\+cs\end{DoxyCompactItemize}

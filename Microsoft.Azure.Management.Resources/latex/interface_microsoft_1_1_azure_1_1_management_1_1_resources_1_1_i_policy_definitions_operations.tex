@@ -1,0 +1,102 @@
+\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations}{}\section{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Policy\+Definitions\+Operations Interface Reference}
+\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations}\index{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Policy\+Definitions\+Operations@{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Policy\+Definitions\+Operations}}
+
+
+Policy\+Definitions\+Operations operations.  
+
+
+
+
+Inherited by Microsoft.\+Azure.\+Management.\+Resources.\+Policy\+Definitions\+Operations.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ Azure\+Operation\+Response$<$ Policy\+Definition $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_a582dfe92fbd288e11e8478448ce3949b}{Create\+Or\+Update\+With\+Http\+Messages\+Async} (string policy\+Definition\+Name, Policy\+Definition parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Create or update policy definition. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Policy\+Definition $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_aa13da00dc909b936060f186ca51cfe1d}{Get\+With\+Http\+Messages\+Async} (string policy\+Definition\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets policy definition. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_ad6b21e52c59bb16c61abe852f563e6ca}{Delete\+With\+Http\+Messages\+Async} (string policy\+Definition\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Deletes policy definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Policy\+Definitions\+Operations operations. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations}!Create\+Or\+Update\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+With\+Http\+Messages\+Async}}
+\index{Create\+Or\+Update\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations}}
+\subsubsection[{\texorpdfstring{Create\+Or\+Update\+With\+Http\+Messages\+Async(string policy\+Definition\+Name, Policy\+Definition parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{CreateOrUpdateWithHttpMessagesAsync(string policyDefinitionName, PolicyDefinition parameters, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Policy\+Definition$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Policy\+Definitions\+Operations.\+Create\+Or\+Update\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{policy\+Definition\+Name, }
+\item[{Policy\+Definition}]{parameters, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_a582dfe92fbd288e11e8478448ce3949b}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_a582dfe92fbd288e11e8478448ce3949b}
+
+
+Create or update policy definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em policy\+Definition\+Name} & The policy definition name. \\
+\hline
+{\em parameters} & The policy definition properties \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations}!Delete\+With\+Http\+Messages\+Async@{Delete\+With\+Http\+Messages\+Async}}
+\index{Delete\+With\+Http\+Messages\+Async@{Delete\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations}}
+\subsubsection[{\texorpdfstring{Delete\+With\+Http\+Messages\+Async(string policy\+Definition\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{DeleteWithHttpMessagesAsync(string policyDefinitionName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Policy\+Definitions\+Operations.\+Delete\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{policy\+Definition\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_ad6b21e52c59bb16c61abe852f563e6ca}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_ad6b21e52c59bb16c61abe852f563e6ca}
+
+
+Deletes policy definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em policy\+Definition\+Name} & The policy definition name. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations}!Get\+With\+Http\+Messages\+Async@{Get\+With\+Http\+Messages\+Async}}
+\index{Get\+With\+Http\+Messages\+Async@{Get\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Policy\+Definitions\+Operations}}
+\subsubsection[{\texorpdfstring{Get\+With\+Http\+Messages\+Async(string policy\+Definition\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{GetWithHttpMessagesAsync(string policyDefinitionName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Policy\+Definition$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Policy\+Definitions\+Operations.\+Get\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{policy\+Definition\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_aa13da00dc909b936060f186ca51cfe1d}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_policy_definitions_operations_aa13da00dc909b936060f186ca51cfe1d}
+
+
+Gets policy definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em policy\+Definition\+Name} & The policy definition name. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+files/I\+Policy\+Definitions\+Operations.\+cs\end{DoxyCompactItemize}

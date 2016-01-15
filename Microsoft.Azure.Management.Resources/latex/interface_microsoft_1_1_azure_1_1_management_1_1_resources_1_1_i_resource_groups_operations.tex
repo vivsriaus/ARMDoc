@@ -1,0 +1,276 @@
+\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations}{}\section{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations Interface Reference}
+\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations}\index{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations@{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations}}
+
+
+Resource\+Groups\+Operations operations.  
+
+
+
+
+Inherited by Microsoft.\+Azure.\+Management.\+Resources.\+Resource\+Groups\+Operations.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Generic\+Resource $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a71b725a40dcd00275221c23881ca91fd}{List\+Resources\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, O\+Data\+Query$<$ Generic\+Resource\+Filter $>$ odata\+Query=default(O\+Data\+Query$<$ Generic\+Resource\+Filter $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Get all of the resources under a subscription. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ bool?$>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ae3a9d3f77df4c66138103a69a9e78669}{Check\+Existence\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Checks whether resource group exists. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Resource\+Group $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ac340acabbaa0d0be9375232f896e32e6}{Create\+Or\+Update\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, Resource\+Group parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Create a resource group. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a4c201f1b6ef51cfeabf95037dc97c4d9}{Delete\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Begin deleting resource group.\+To determine whether the operation has finished processing the request, call Get\+Long\+Running\+Operation\+Status. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a7b5d2d271fb9fe842fb627dbc0a38806}{Begin\+Delete\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Begin deleting resource group.\+To determine whether the operation has finished processing the request, call Get\+Long\+Running\+Operation\+Status. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Resource\+Group $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_abadfed412e54bc9a0ebc5d001184040f}{Get\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Get a resource group. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Resource\+Group $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ac992635f11c74fc91f052ddab684e7ce}{Patch\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, Resource\+Group parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Resource groups can be updated through a simple P\+A\+T\+CH operation to a group address. The format of the request is the same as that for creating a resource groups, though if a field is unspecified current value will be carried over. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Resource\+Group $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a5a533271ee55ddfebc5fd1704b1d1768}{List\+With\+Http\+Messages\+Async} (O\+Data\+Query$<$ Resource\+Group\+Filter $>$ odata\+Query=default(O\+Data\+Query$<$ Resource\+Group\+Filter $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets a collection of resource groups. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Generic\+Resource $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a8feec23cd122c845653b9ef824fb5da5}{List\+Resources\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Get all of the resources under a subscription. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Resource\+Group $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_abf5148a9c206fc85f04957d4c51e4c78}{List\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets a collection of resource groups. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Resource\+Groups\+Operations operations. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!Begin\+Delete\+With\+Http\+Messages\+Async@{Begin\+Delete\+With\+Http\+Messages\+Async}}
+\index{Begin\+Delete\+With\+Http\+Messages\+Async@{Begin\+Delete\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{Begin\+Delete\+With\+Http\+Messages\+Async(string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{BeginDeleteWithHttpMessagesAsync(string resourceGroupName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+Begin\+Delete\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a7b5d2d271fb9fe842fb627dbc0a38806}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a7b5d2d271fb9fe842fb627dbc0a38806}
+
+
+Begin deleting resource group.\+To determine whether the operation has finished processing the request, call Get\+Long\+Running\+Operation\+Status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group to be deleted. The name is case insensitive. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!Check\+Existence\+With\+Http\+Messages\+Async@{Check\+Existence\+With\+Http\+Messages\+Async}}
+\index{Check\+Existence\+With\+Http\+Messages\+Async@{Check\+Existence\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{Check\+Existence\+With\+Http\+Messages\+Async(string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{CheckExistenceWithHttpMessagesAsync(string resourceGroupName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$bool?$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+Check\+Existence\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ae3a9d3f77df4c66138103a69a9e78669}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ae3a9d3f77df4c66138103a69a9e78669}
+
+
+Checks whether resource group exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group to check. The name is case insensitive. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!Create\+Or\+Update\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+With\+Http\+Messages\+Async}}
+\index{Create\+Or\+Update\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{Create\+Or\+Update\+With\+Http\+Messages\+Async(string resource\+Group\+Name, Resource\+Group parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, ResourceGroup parameters, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Resource\+Group$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+Create\+Or\+Update\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{Resource\+Group}]{parameters, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ac340acabbaa0d0be9375232f896e32e6}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ac340acabbaa0d0be9375232f896e32e6}
+
+
+Create a resource group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group to be created or updated. \\
+\hline
+{\em parameters} & Parameters supplied to the create or update resource group service operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!Delete\+With\+Http\+Messages\+Async@{Delete\+With\+Http\+Messages\+Async}}
+\index{Delete\+With\+Http\+Messages\+Async@{Delete\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{Delete\+With\+Http\+Messages\+Async(string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{DeleteWithHttpMessagesAsync(string resourceGroupName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+Delete\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a4c201f1b6ef51cfeabf95037dc97c4d9}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a4c201f1b6ef51cfeabf95037dc97c4d9}
+
+
+Begin deleting resource group.\+To determine whether the operation has finished processing the request, call Get\+Long\+Running\+Operation\+Status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group to be deleted. The name is case insensitive. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!Get\+With\+Http\+Messages\+Async@{Get\+With\+Http\+Messages\+Async}}
+\index{Get\+With\+Http\+Messages\+Async@{Get\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{Get\+With\+Http\+Messages\+Async(string resource\+Group\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{GetWithHttpMessagesAsync(string resourceGroupName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Resource\+Group$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+Get\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_abadfed412e54bc9a0ebc5d001184040f}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_abadfed412e54bc9a0ebc5d001184040f}
+
+
+Get a resource group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group to get. The name is case insensitive. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!List\+Next\+With\+Http\+Messages\+Async@{List\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+Next\+With\+Http\+Messages\+Async@{List\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{List\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Resource\+Group$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+List\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_abf5148a9c206fc85f04957d4c51e4c78}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_abf5148a9c206fc85f04957d4c51e4c78}
+
+
+Gets a collection of resource groups. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!List\+Resources\+Next\+With\+Http\+Messages\+Async@{List\+Resources\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+Resources\+Next\+With\+Http\+Messages\+Async@{List\+Resources\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{List\+Resources\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListResourcesNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Generic\+Resource$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+List\+Resources\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a8feec23cd122c845653b9ef824fb5da5}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a8feec23cd122c845653b9ef824fb5da5}
+
+
+Get all of the resources under a subscription. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!List\+Resources\+With\+Http\+Messages\+Async@{List\+Resources\+With\+Http\+Messages\+Async}}
+\index{List\+Resources\+With\+Http\+Messages\+Async@{List\+Resources\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{List\+Resources\+With\+Http\+Messages\+Async(string resource\+Group\+Name, O\+Data\+Query$<$ Generic\+Resource\+Filter $>$ odata\+Query=default(\+O\+Data\+Query$<$ Generic\+Resource\+Filter $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListResourcesWithHttpMessagesAsync(string resourceGroupName, ODataQuery< GenericResourceFilter > odataQuery=default(ODataQuery< GenericResourceFilter >), Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Generic\+Resource$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+List\+Resources\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{O\+Data\+Query$<$ Generic\+Resource\+Filter $>$}]{odata\+Query = {\ttfamily default(ODataQuery$<$~GenericResourceFilter~$>$)}, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a71b725a40dcd00275221c23881ca91fd}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a71b725a40dcd00275221c23881ca91fd}
+
+
+Get all of the resources under a subscription. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & Query parameters. If null is passed returns all resource groups. \\
+\hline
+{\em odata\+Query} & O\+Data parameters to apply to the operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!List\+With\+Http\+Messages\+Async@{List\+With\+Http\+Messages\+Async}}
+\index{List\+With\+Http\+Messages\+Async@{List\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{List\+With\+Http\+Messages\+Async(\+O\+Data\+Query$<$ Resource\+Group\+Filter $>$ odata\+Query=default(\+O\+Data\+Query$<$ Resource\+Group\+Filter $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListWithHttpMessagesAsync(ODataQuery< ResourceGroupFilter > odataQuery=default(ODataQuery< ResourceGroupFilter >), Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Resource\+Group$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+List\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{O\+Data\+Query$<$ Resource\+Group\+Filter $>$}]{odata\+Query = {\ttfamily default(ODataQuery$<$~ResourceGroupFilter~$>$)}, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a5a533271ee55ddfebc5fd1704b1d1768}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_a5a533271ee55ddfebc5fd1704b1d1768}
+
+
+Gets a collection of resource groups. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em odata\+Query} & O\+Data parameters to apply to the operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}!Patch\+With\+Http\+Messages\+Async@{Patch\+With\+Http\+Messages\+Async}}
+\index{Patch\+With\+Http\+Messages\+Async@{Patch\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Resource\+Groups\+Operations}}
+\subsubsection[{\texorpdfstring{Patch\+With\+Http\+Messages\+Async(string resource\+Group\+Name, Resource\+Group parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{PatchWithHttpMessagesAsync(string resourceGroupName, ResourceGroup parameters, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Resource\+Group$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Resource\+Groups\+Operations.\+Patch\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{Resource\+Group}]{parameters, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ac992635f11c74fc91f052ddab684e7ce}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_resource_groups_operations_ac992635f11c74fc91f052ddab684e7ce}
+
+
+Resource groups can be updated through a simple P\+A\+T\+CH operation to a group address. The format of the request is the same as that for creating a resource groups, though if a field is unspecified current value will be carried over. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group to be created or updated. The name is case insensitive. \\
+\hline
+{\em parameters} & Parameters supplied to the update state resource group service operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+files/I\+Resource\+Groups\+Operations.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,450 @@
+\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations}{}\section{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations Interface Reference}
+\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations}\index{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations@{Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations}}
+
+
+Management\+Locks\+Operations operations.  
+
+
+
+
+Inherited by Microsoft.\+Azure.\+Management.\+Resources.\+Management\+Locks\+Operations.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Task$<$ Azure\+Operation\+Response$<$ Management\+Lock\+Object $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a0416dc292db36776c1b4786d80074b7d}{Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, string lock\+Name, Management\+Lock\+Object parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Create or update a management lock at the resource group level. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Management\+Lock\+Object $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a11677d16f93b691d53113375e49c5abd}{Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, string resource\+Provider\+Namespace, string parent\+Resource\+Path, string resource\+Type, string resource\+Name, string lock\+Name, Management\+Lock\+Object parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Create or update a management lock at the resource level or any level below resource. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a1a680da1a4835d38e1b4058c93f949fa}{Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, string resource\+Provider\+Namespace, string parent\+Resource\+Path, string resource\+Type, string resource\+Name, string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Deletes the management lock of a resource or any level below resource. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Management\+Lock\+Object $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a58f67611b100e0ece138e1d9ebaa206c}{Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async} (string lock\+Name, Management\+Lock\+Object parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Create or update a management lock at the subscription level. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a6a7f8089bce87a447873131e274cbdeb}{Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async} (string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Deletes the management lock of a subscription. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ Management\+Lock\+Object $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a7fe872ce8132bf9ad4d658c32f7b6fd5}{Get\+With\+Http\+Messages\+Async} (string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets the management lock of a scope. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_ab6a3b62add2d30fbf069899dcfd09b51}{Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async} (string resource\+Group, string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Deletes the management lock of a resource group. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_abf108939936818afb2f7f2bf250cdc96}{List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, O\+Data\+Query$<$ Management\+Lock\+Object $>$ odata\+Query=default(O\+Data\+Query$<$ Management\+Lock\+Object $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets all the management locks of a resource group. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a23a684c365fafb8082c1a4b8a97a21a7}{List\+At\+Resource\+Level\+With\+Http\+Messages\+Async} (string resource\+Group\+Name, string resource\+Provider\+Namespace, string parent\+Resource\+Path, string resource\+Type, string resource\+Name, O\+Data\+Query$<$ Management\+Lock\+Object $>$ odata\+Query=default(O\+Data\+Query$<$ Management\+Lock\+Object $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets all the management locks of a resource or any level below resource. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a618a29b67ef59ea153ab6b298d43c1c3}{List\+Next\+With\+Http\+Messages\+Async} (string next\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Get a list of management locks at resource level or below. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a92fa97a75b87a295d9b3a78551edc31e}{List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async} (O\+Data\+Query$<$ Management\+Lock\+Object $>$ odata\+Query=default(O\+Data\+Query$<$ Management\+Lock\+Object $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets all the management locks of a subscription. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a80fe1fe9623cf9b544f953604cc3191e}{List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets all the management locks of a resource group. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a248a1c30feca8f07eb6886a5c1370814}{List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets all the management locks of a resource or any level below resource. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_afb9fc9c291a9a64898362a4adbbde46e}{List\+Next\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Get a list of management locks at resource level or below. \end{DoxyCompactList}\item 
+Task$<$ Azure\+Operation\+Response$<$ I\+Page$<$ Management\+Lock\+Object $>$ $>$ $>$ \hyperlink{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a6444be3ad9fd2a67fa952d4cb18f7ccc}{List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async} (string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(Cancellation\+Token))
+\begin{DoxyCompactList}\small\item\em Gets all the management locks of a subscription. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Management\+Locks\+Operations operations. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async}}
+\index{Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async(string resource\+Group\+Name, string lock\+Name, Management\+Lock\+Object parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{CreateOrUpdateAtResourceGroupLevelWithHttpMessagesAsync(string resourceGroupName, string lockName, ManagementLockObject parameters, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Management\+Lock\+Object$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Create\+Or\+Update\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{string}]{lock\+Name, }
+\item[{Management\+Lock\+Object}]{parameters, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a0416dc292db36776c1b4786d80074b7d}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a0416dc292db36776c1b4786d80074b7d}
+
+
+Create or update a management lock at the resource group level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The resource group name. \\
+\hline
+{\em lock\+Name} & The lock name. \\
+\hline
+{\em parameters} & The management lock parameters. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async}}
+\index{Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async(string resource\+Group\+Name, string resource\+Provider\+Namespace, string parent\+Resource\+Path, string resource\+Type, string resource\+Name, string lock\+Name, Management\+Lock\+Object parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{CreateOrUpdateAtResourceLevelWithHttpMessagesAsync(string resourceGroupName, string resourceProviderNamespace, string parentResourcePath, string resourceType, string resourceName, string lockName, ManagementLockObject parameters, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Management\+Lock\+Object$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Create\+Or\+Update\+At\+Resource\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{string}]{resource\+Provider\+Namespace, }
+\item[{string}]{parent\+Resource\+Path, }
+\item[{string}]{resource\+Type, }
+\item[{string}]{resource\+Name, }
+\item[{string}]{lock\+Name, }
+\item[{Management\+Lock\+Object}]{parameters, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a11677d16f93b691d53113375e49c5abd}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a11677d16f93b691d53113375e49c5abd}
+
+
+Create or update a management lock at the resource level or any level below resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group. \\
+\hline
+{\em resource\+Provider\+Namespace} & Resource identity. \\
+\hline
+{\em parent\+Resource\+Path} & Resource identity. \\
+\hline
+{\em resource\+Type} & Resource identity. \\
+\hline
+{\em resource\+Name} & Resource identity. \\
+\hline
+{\em lock\+Name} & The name of lock. \\
+\hline
+{\em parameters} & Create or update management lock parameters. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async}}
+\index{Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async@{Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async(string lock\+Name, Management\+Lock\+Object parameters, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{CreateOrUpdateAtSubscriptionLevelWithHttpMessagesAsync(string lockName, ManagementLockObject parameters, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Management\+Lock\+Object$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Create\+Or\+Update\+At\+Subscription\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{lock\+Name, }
+\item[{Management\+Lock\+Object}]{parameters, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a58f67611b100e0ece138e1d9ebaa206c}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a58f67611b100e0ece138e1d9ebaa206c}
+
+
+Create or update a management lock at the subscription level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lock\+Name} & The name of lock. \\
+\hline
+{\em parameters} & The management lock parameters. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async@{Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async}}
+\index{Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async@{Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async(string resource\+Group, string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{DeleteAtResourceGroupLevelWithHttpMessagesAsync(string resourceGroup, string lockName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Delete\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group, }
+\item[{string}]{lock\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_ab6a3b62add2d30fbf069899dcfd09b51}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_ab6a3b62add2d30fbf069899dcfd09b51}
+
+
+Deletes the management lock of a resource group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group} & The resource group names. \\
+\hline
+{\em lock\+Name} & The name of lock. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async@{Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async}}
+\index{Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async@{Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async(string resource\+Group\+Name, string resource\+Provider\+Namespace, string parent\+Resource\+Path, string resource\+Type, string resource\+Name, string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{DeleteAtResourceLevelWithHttpMessagesAsync(string resourceGroupName, string resourceProviderNamespace, string parentResourcePath, string resourceType, string resourceName, string lockName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Delete\+At\+Resource\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{string}]{resource\+Provider\+Namespace, }
+\item[{string}]{parent\+Resource\+Path, }
+\item[{string}]{resource\+Type, }
+\item[{string}]{resource\+Name, }
+\item[{string}]{lock\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a1a680da1a4835d38e1b4058c93f949fa}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a1a680da1a4835d38e1b4058c93f949fa}
+
+
+Deletes the management lock of a resource or any level below resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group. \\
+\hline
+{\em resource\+Provider\+Namespace} & Resource identity. \\
+\hline
+{\em parent\+Resource\+Path} & Resource identity. \\
+\hline
+{\em resource\+Type} & Resource identity. \\
+\hline
+{\em resource\+Name} & Resource identity. \\
+\hline
+{\em lock\+Name} & The name of lock. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async@{Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async}}
+\index{Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async@{Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async(string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{DeleteAtSubscriptionLevelWithHttpMessagesAsync(string lockName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Delete\+At\+Subscription\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{lock\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a6a7f8089bce87a447873131e274cbdeb}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a6a7f8089bce87a447873131e274cbdeb}
+
+
+Deletes the management lock of a subscription. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lock\+Name} & The name of lock. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!Get\+With\+Http\+Messages\+Async@{Get\+With\+Http\+Messages\+Async}}
+\index{Get\+With\+Http\+Messages\+Async@{Get\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{Get\+With\+Http\+Messages\+Async(string lock\+Name, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{GetWithHttpMessagesAsync(string lockName, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$Management\+Lock\+Object$>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+Get\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{lock\+Name, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a7fe872ce8132bf9ad4d658c32f7b6fd5}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a7fe872ce8132bf9ad4d658c32f7b6fd5}
+
+
+Gets the management lock of a scope. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lock\+Name} & Name of the management lock. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListAtResourceGroupLevelNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+At\+Resource\+Group\+Level\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a80fe1fe9623cf9b544f953604cc3191e}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a80fe1fe9623cf9b544f953604cc3191e}
+
+
+Gets all the management locks of a resource group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async}}
+\index{List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async(string resource\+Group\+Name, O\+Data\+Query$<$ Management\+Lock\+Object $>$ odata\+Query=default(\+O\+Data\+Query$<$ Management\+Lock\+Object $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListAtResourceGroupLevelWithHttpMessagesAsync(string resourceGroupName, ODataQuery< ManagementLockObject > odataQuery=default(ODataQuery< ManagementLockObject >), Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+At\+Resource\+Group\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{O\+Data\+Query$<$ Management\+Lock\+Object $>$}]{odata\+Query = {\ttfamily default(ODataQuery$<$~ManagementLockObject~$>$)}, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_abf108939936818afb2f7f2bf250cdc96}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_abf108939936818afb2f7f2bf250cdc96}
+
+
+Gets all the management locks of a resource group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & Resource group name. \\
+\hline
+{\em odata\+Query} & O\+Data parameters to apply to the operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListAtResourceLevelNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+At\+Resource\+Level\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a248a1c30feca8f07eb6886a5c1370814}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a248a1c30feca8f07eb6886a5c1370814}
+
+
+Gets all the management locks of a resource or any level below resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+At\+Resource\+Level\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Level\+With\+Http\+Messages\+Async}}
+\index{List\+At\+Resource\+Level\+With\+Http\+Messages\+Async@{List\+At\+Resource\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+At\+Resource\+Level\+With\+Http\+Messages\+Async(string resource\+Group\+Name, string resource\+Provider\+Namespace, string parent\+Resource\+Path, string resource\+Type, string resource\+Name, O\+Data\+Query$<$ Management\+Lock\+Object $>$ odata\+Query=default(\+O\+Data\+Query$<$ Management\+Lock\+Object $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListAtResourceLevelWithHttpMessagesAsync(string resourceGroupName, string resourceProviderNamespace, string parentResourcePath, string resourceType, string resourceName, ODataQuery< ManagementLockObject > odataQuery=default(ODataQuery< ManagementLockObject >), Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+At\+Resource\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{resource\+Group\+Name, }
+\item[{string}]{resource\+Provider\+Namespace, }
+\item[{string}]{parent\+Resource\+Path, }
+\item[{string}]{resource\+Type, }
+\item[{string}]{resource\+Name, }
+\item[{O\+Data\+Query$<$ Management\+Lock\+Object $>$}]{odata\+Query = {\ttfamily default(ODataQuery$<$~ManagementLockObject~$>$)}, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a23a684c365fafb8082c1a4b8a97a21a7}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a23a684c365fafb8082c1a4b8a97a21a7}
+
+
+Gets all the management locks of a resource or any level below resource. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Group\+Name} & The name of the resource group. The name is case insensitive. \\
+\hline
+{\em resource\+Provider\+Namespace} & Resource identity. \\
+\hline
+{\em parent\+Resource\+Path} & Resource identity. \\
+\hline
+{\em resource\+Type} & Resource identity. \\
+\hline
+{\em resource\+Name} & Resource identity. \\
+\hline
+{\em odata\+Query} & O\+Data parameters to apply to the operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async@{List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async@{List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListAtSubscriptionLevelNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+At\+Subscription\+Level\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a6444be3ad9fd2a67fa952d4cb18f7ccc}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a6444be3ad9fd2a67fa952d4cb18f7ccc}
+
+
+Gets all the management locks of a subscription. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async@{List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async}}
+\index{List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async@{List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async(\+O\+Data\+Query$<$ Management\+Lock\+Object $>$ odata\+Query=default(\+O\+Data\+Query$<$ Management\+Lock\+Object $>$), Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListAtSubscriptionLevelWithHttpMessagesAsync(ODataQuery< ManagementLockObject > odataQuery=default(ODataQuery< ManagementLockObject >), Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+At\+Subscription\+Level\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{O\+Data\+Query$<$ Management\+Lock\+Object $>$}]{odata\+Query = {\ttfamily default(ODataQuery$<$~ManagementLockObject~$>$)}, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a92fa97a75b87a295d9b3a78551edc31e}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a92fa97a75b87a295d9b3a78551edc31e}
+
+
+Gets all the management locks of a subscription. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em odata\+Query} & O\+Data parameters to apply to the operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+Next\+Next\+With\+Http\+Messages\+Async@{List\+Next\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+Next\+Next\+With\+Http\+Messages\+Async@{List\+Next\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+Next\+Next\+With\+Http\+Messages\+Async(string next\+Page\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListNextNextWithHttpMessagesAsync(string nextPageLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+Next\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Page\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_afb9fc9c291a9a64898362a4adbbde46e}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_afb9fc9c291a9a64898362a4adbbde46e}
+
+
+Get a list of management locks at resource level or below. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Link} & The Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+\index{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}!List\+Next\+With\+Http\+Messages\+Async@{List\+Next\+With\+Http\+Messages\+Async}}
+\index{List\+Next\+With\+Http\+Messages\+Async@{List\+Next\+With\+Http\+Messages\+Async}!Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations@{Microsoft\+::\+Azure\+::\+Management\+::\+Resources\+::\+I\+Management\+Locks\+Operations}}
+\subsubsection[{\texorpdfstring{List\+Next\+With\+Http\+Messages\+Async(string next\+Link, Dictionary$<$ string, List$<$ string $>$$>$ custom\+Headers=null, Cancellation\+Token cancellation\+Token=default(\+Cancellation\+Token))}{ListNextWithHttpMessagesAsync(string nextLink, Dictionary< string, List< string >> customHeaders=null, CancellationToken cancellationToken=default(CancellationToken))}}]{\setlength{\rightskip}{0pt plus 5cm}Task$<$Azure\+Operation\+Response$<$I\+Page$<$Management\+Lock\+Object$>$ $>$ $>$ Microsoft.\+Azure.\+Management.\+Resources.\+I\+Management\+Locks\+Operations.\+List\+Next\+With\+Http\+Messages\+Async (
+\begin{DoxyParamCaption}
+\item[{string}]{next\+Link, }
+\item[{Dictionary$<$ string, List$<$ string $>$$>$}]{custom\+Headers = {\ttfamily null}, }
+\item[{Cancellation\+Token}]{cancellation\+Token = {\ttfamily default(CancellationToken)}}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a618a29b67ef59ea153ab6b298d43c1c3}{}\label{interface_microsoft_1_1_azure_1_1_management_1_1_resources_1_1_i_management_locks_operations_a618a29b67ef59ea153ab6b298d43c1c3}
+
+
+Get a list of management locks at resource level or below. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Link} & Next\+Link from the previous successful call to List operation. \\
+\hline
+{\em custom\+Headers} & The headers that will be added to request. \\
+\hline
+{\em cancellation\+Token} & The cancellation token. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+files/I\+Management\+Locks\+Operations.\+cs\end{DoxyCompactItemize}
