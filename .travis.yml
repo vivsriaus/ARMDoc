@@ -34,7 +34,6 @@ script:
   - dnvm install 1.0.0-rc1-final -r mono
   - dnvm install 1.0.0-rc1-final -r coreclr
   - dnvm use 1.0.0-rc1-final -r coreclr -persistent
-  #- gulp  
   - pwd
   - ls -al
   - gulp codegen --spec-root ../../swagger

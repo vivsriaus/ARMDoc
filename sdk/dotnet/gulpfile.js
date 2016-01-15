@@ -59,7 +59,7 @@ gulp.task('codegen', function(cb) {
 var codegen = function(project, cb) {
   console.log('Generating "' + project + '" from spec file ' + specRoot + '/' + dotnetMappings[project].source);
   cmd = autoRestExe + ' -Modeler Swagger -CodeGenerator Azure.CSharp' + ' -Input ' + specRoot + '/' + dotnetMappings[project].source + 
-    ' -outputDirectory Microsoft.Azure.ResourceManager' + dotnetMappings[project].dir + ' -Namespace Microsoft.Azure.Management.Resources' + ' -Header MICROSOFT_MIT';
+    ' -Namespace Microsoft.Azure.Management.Resources' + ' -Header MICROSOFT_MIT';
   if (dotnetMappings[project].ft !== null && dotnetMappings[project].ft !== undefined) cmd += ' -FT ' + dotnetMappings[project].ft;
   if (dotnetMappings[project].args !== undefined) {
     cmd = cmd + ' ' + args;
