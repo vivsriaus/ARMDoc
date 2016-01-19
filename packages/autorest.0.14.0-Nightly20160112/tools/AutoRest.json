@@ -17,6 +17,12 @@
     },
     "Azure.Ruby": {
       "type": "AzureRubyCodeGenerator, AutoRest.Generator.Azure.Ruby"
+    },
+	"Java": {
+      "type": "JavaCodeGenerator, AutoRest.Generator.Java"
+    },
+    "Azure.Java": {
+      "type": "AzureJavaCodeGenerator, AutoRest.Generator.Azure.Java"
     }
   },
   "modelers": {
