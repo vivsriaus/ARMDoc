@@ -2,11 +2,16 @@
 
 rev=$(git rev-parse --short HEAD)
 
-cp -avr static/fonts _site/
-cp -avr static/scripts _site/
-cp -avr static/styles _site/
+#Generate docs
+cp -avr src/ResourceManagement/Resource tools/files/
+cd tools
+mono doxygen.exe Doxyfile
 
-cd _site
+#Copy generated docs to _site
+cp -avr html/ ../_site/
+cp -avr latext/ ../_site/
+
+cd ../_site
 
 git init
 git config user.name "Vivek Srinivasan"
