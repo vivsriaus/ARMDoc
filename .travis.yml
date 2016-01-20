@@ -49,10 +49,10 @@ script:
   # generate dotnet sdk docs using Sandcastle (TBD)
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
-  cd ../../swagger-ui/dist
-  cp ../../swagger/arm-resource/resources/2014-04-01-preview/resources.json swagger.json
-  cd ..
-  bash publishSwaggerUI.sh
+  - cd ../../swagger-ui/dist
+  - cp ../../swagger/arm-resource/resources/2014-04-01-preview/resources.json swagger.json
+  - cd ..
+  - bash publishSwaggerUI.sh
   #npm install -g http-server
   #bash startHttpSeverForCORS.sh
 env:
