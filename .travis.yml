@@ -36,12 +36,25 @@ script:
   - dnvm use 1.0.0-rc1-final -r coreclr -persistent
   - pwd
   - ls -al
+  # generate node sdk code
   - gulp codegen --spec-root ../../swagger
+  # generate node sdk docs
   - grunt genDocs
+  # publish node sdk docs
   - bash deploy.sh
   - cd ../dotnet
+  # generate dotnet sdk code
   - gulp codegen --spec-root ../../swagger
   - find . -name '*.cs'
+  # generate dotnet sdk docs using Sandcastle (TBD)
+  # publish dotnet sdk docs using bash script (TBD)
+  # generate swagger ui docs
+  cd ../../swagger-ui/dist
+  cp ../../swagger/arm-resource/resources/2014-04-01-preview/resources.json swagger.json
+  cd ..
+  bash publishSwaggerUI.sh
+  #npm install -g http-server
+  #bash startHttpSeverForCORS.sh
 env:
   global:
     secure: ZlFb1c7WJvxQD7ErzjZ58UKbu27avP6ZWpiFbZ51K75Pw7vSe4RWthb91DmDPTgS/ALpcBxa1FfAz5aQZ9w9oAuJd4uSmbj2nTCpc+/HA+/l+ilsITmcAFhkuQ8fsQUDKK1DxrP6iYBukUTA2SD081xWCZ4c36OFZevc+4Z33aZ51PCZs+44BmLqjhTuJbauTZubsi6nbPglNJvOd1cJqeOcpTkjIpbwvyZAx8sZWc10YyrBBe+Eiun4t8w+6PS/djGjpCKvGI2Ll408Tm7DXcu8N0XEYz+nVJuEMIhuSD3UwKx/c6rqUvv1FACDQdiGwPRVSKvE5PFMcTZPVxWBcbe4mjAc0YdODG+OJZBa/ut6luWysrU8H39kh3bKwX6f1pNWoHxxW5hvqTEs1pVtF079CtuGDz17zBSyG3AQVyCjDe+pu+lA3bcNnCuLgR3auO1mL6V/TAUG9tqzTDzcrxT65NrOwmlb2aYdJrBFaYN75zQZkKti5jFthbmOugPJzynW59iEXOZLy3efl6J84Qed7k1btUzJptkQlPgjSL5/O5b5gl7RKyH4lM0xPARxBcfzUcb/huFywoOlyIl0Ka2swSiukZQFYtK1x8vs8VHIF+LHJYfaKt6RlbSaHpoAqmB+IL5Vo10MJzmZFHEXb8oo2tPx37RzUzsdp7vID70=
