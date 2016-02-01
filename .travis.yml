@@ -74,6 +74,7 @@ script:
   - ls -al
   - dnu install Microsoft.Rest.ClientRuntime.Azure
   - dnu build
+  - ls -al
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
   - cd ../../../../
