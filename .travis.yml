@@ -50,6 +50,8 @@ script:
   - cp -avr src/Microsoft.Azure.ResourceManager.xproj src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Microsoft.Azure.ResourceManager.xproj
   - find . -name '*.cs'
   # generate dotnet sdk docs using Sandcastle (TBD)
+  - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
+  - mono msbuild.exe
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
   - cd ../../swagger-ui/swagger
