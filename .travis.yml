@@ -55,6 +55,7 @@ script:
   - dnu build
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
+  - cd ../../../../
   - cd ../../swagger-ui/swagger
   - cp ../../swagger/arm-resource/resources/2014-04-01-preview/resources.json swagger.json
   - cd ..
