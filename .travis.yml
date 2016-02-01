@@ -42,7 +42,7 @@ script:
   - grunt genDocs
   # publish node sdk docs
   - bash deploy.sh
-  - cd ../dotnet
+  - cd ../dotnet 
   # generate dotnet sdk code
   - gulp codegen --spec-root ../../swagger
   - find . -name '*.cs'
