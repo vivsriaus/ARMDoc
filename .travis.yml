@@ -71,7 +71,8 @@ script:
   - find . -name '*.cs'
   # generate dotnet sdk docs using Sandcastle (TBD)
   - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
-  - dnu install
+  - ls -al
+  - dnu install Microsoft.Rest.ClientRuntime.Azure
   - dnu build
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
