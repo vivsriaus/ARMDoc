@@ -45,6 +45,8 @@ script:
   - cd ../dotnet 
   # generate dotnet sdk code
   - gulp codegen --spec-root ../../swagger
+  # copy the static proj files
+  - cp -avr src/ src/ResourceManagement/Resource/
   - find . -name '*.cs'
   # generate dotnet sdk docs using Sandcastle (TBD)
   # publish dotnet sdk docs using bash script (TBD)
