@@ -72,6 +72,7 @@ script:
   # generate dotnet sdk docs using Sandcastle (TBD)
   - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
   - ls -al
+  - dnu --version
   - dnu install Microsoft.Rest.ClientRuntime.Azure
   - dnu build
   - ls -al
