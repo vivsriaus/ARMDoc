@@ -10,6 +10,8 @@ mono:
 #  - beta
 addons:
   apt:
+    sources:
+    - deadsnakes
     packages:
     - gettext
     - libcurl4-openssl-dev
