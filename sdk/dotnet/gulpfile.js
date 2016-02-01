@@ -5,19 +5,19 @@ var exec = require('child_process').exec;
 
 var dotnetMappings = {
   'resource': {
-    'dir': 'src/ResourceManagement/Resource/Generated/',
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Generated/',
     'source': 'arm-resource/resources/2014-04-01-preview/resources.json'
   },
   'resource.subscription': {
-    'dir': 'src/ResourceManagement/Resource/Generated/',
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Generated/',
     'source': 'arm-resource/subscriptions/2014-04-01-preview/subscriptions.json'
   },
   'resource.authorization': {
-    'dir': 'src/ResourceManagement/Resource/Generated/',
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Generated/',
     'source': 'arm-resource/authorization/2015-01-01/authorization.json'
   },
   'resource.feature': {
-    'dir': 'src/ResourceManagement/Resource/Generated/',
+    'dir': 'src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Generated/',
     'source': 'arm-resource/features/2014-08-01-preview/features.json'
   }
 };

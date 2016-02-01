@@ -46,7 +46,8 @@ script:
   # generate dotnet sdk code
   - gulp codegen --spec-root ../../swagger
   # copy the static proj files
-  - cp -avr src/ src/ResourceManagement/Resource/
+  - cp -avr src/Properties/ src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Properties/
+  - cp -avr src/Microsoft.Azure.ResourceManager.xproj src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Microsoft.Azure.ResourceManager.xproj
   - find . -name '*.cs'
   # generate dotnet sdk docs using Sandcastle (TBD)
   # publish dotnet sdk docs using bash script (TBD)
