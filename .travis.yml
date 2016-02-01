@@ -51,7 +51,8 @@ script:
   - find . -name '*.cs'
   # generate dotnet sdk docs using Sandcastle (TBD)
   - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
-  - mono msbuild.exe
+  - dnu install
+  - dnu build
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
   - cd ../../swagger-ui/swagger
