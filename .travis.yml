@@ -63,6 +63,7 @@ script:
   # copy the static proj files
   - cp -avr src/Properties/ src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Properties/
   - cp -avr src/Microsoft.Azure.ResourceManager.xproj src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Microsoft.Azure.ResourceManager.xproj
+  - cp -avr src/project.json src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/project.json
   - find . -name '*.cs'
   # generate dotnet sdk docs using Sandcastle (TBD)
   - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
