@@ -8,7 +8,6 @@ mono:
 - 4.0.5
 os:
 - linux
-- osx
 addons:
   apt:
     sources:
