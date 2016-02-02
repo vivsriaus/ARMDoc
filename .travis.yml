@@ -84,6 +84,7 @@ script:
   - dnu install System.Net.Http 
   - dnu install System.Net.Http.WebRequest 
   - dnu install System.Xml 
+  - dnu list --details
   - dnu build
   - ls -al
   # publish dotnet sdk docs using bash script (TBD)
