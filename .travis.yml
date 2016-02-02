@@ -69,6 +69,7 @@ script:
   - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
   - ls -al
   - dnu --version
+  - dnu restore
   - dnu install Microsoft.Rest.ClientRuntime.Azure
   - dnu build
   - ls -al
