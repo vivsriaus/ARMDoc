@@ -21,6 +21,8 @@ addons:
     - libunwind8
     - zlib1g
 install:
+  - echo $DNX_USER_HOME
+  - ls -al $DNX_USER_HOME/dnvm
   # Install DNVM
   - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME
     DNX_BRANCH=v$DNX_VERSION sh
