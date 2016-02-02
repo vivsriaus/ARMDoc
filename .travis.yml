@@ -26,7 +26,6 @@ addons:
     - zlib1g
 install:
   - echo $DNX_VERSION
-  #- ls -al $DNX_USER_HOME/dnvm
   # Install DNVM
   - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME
     DNX_BRANCH=v$DNX_VERSION sh
@@ -65,33 +64,22 @@ script:
   - cp -avr src/Microsoft.Azure.ResourceManager.xproj src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/Microsoft.Azure.ResourceManager.xproj
   - cp -avr src/project.json src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager/project.json
   - find . -name '*.cs'
-  # generate dotnet sdk docs using Sandcastle (TBD)
+  # generate dotnet sdk docs using Sandcastle (TBD) Move this to bash script
   - cd src/ResourceManagement/Resource/Microsoft.Azure.ResourceManager
   - ls -al
   - dnu --version
   - dnu restore
-  #- dnu install Microsoft.Rest.ClientRuntime.Azure
-  #- dnu install System.Collections 
-  #- dnu install System.Linq.Expressions 
-  #- dnu install System.Runtime 
-  #- dnu install System.Runtime.Serialization 
-  #- dnu install System.Threading.Tasks 
-  #- dnu install mscorlib 
-  #- dnu install System 
-  #- dnu install System.Core 
-  #- dnu install Microsoft.CSharp 
-  #- dnu install System.Net 
-  #- dnu install System.Net.Http 
-  #- dnu install System.Net.Http.WebRequest 
-  #- dnu install System.Xml 
   - dnu list --details
   - dnu build
   - ls -al
-  - cd bin
-  - find . -name '*.*'
-  - cd ..
+  - cp -avr ../../../../tools/SandcastleARM.shfbproj bin/Debug/dnxcore50/SandcastleARM.shfbproj
+  - cp -avr ../../../../tools/Sandcastle ~/Sandcastle/
+  - cp -avr ../../../../tools/SandcastleHelpFileBuilder ~/SandcastleHelpFileBuilder
+  - cd bin/Debug/dnxcore50
+  - xbuild SandcastleARM.shfbproj
+  - cd ../../..
   # publish dotnet sdk docs using bash script (TBD)
-  # generate swagger ui docs
+  # generate swagger ui docs TBD Move this to bash script
   - cd ../../../../
   - cd ../../swagger-ui/swagger
   - cp ../../swagger/arm-resource/resources/2014-04-01-preview/resources.json swagger.json
