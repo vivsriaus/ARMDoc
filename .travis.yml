@@ -71,6 +71,19 @@ script:
   - dnu --version
   - dnu restore
   - dnu install Microsoft.Rest.ClientRuntime.Azure
+  - dnu install System.Collections 
+  - dnu install System.Linq.Expressions 
+  - dnu install System.Runtime 
+  - dnu install System.Runtime.Serialization 
+  - dnu install System.Threading.Tasks 
+  - dnu install mscorlib 
+  - dnu install System 
+  - dnu install System.Core 
+  - dnu install Microsoft.CSharp 
+  - dnu install System.Net 
+  - dnu install System.Net.Http 
+  - dnu install System.Net.Http.WebRequest 
+  - dnu install System.Xml 
   - dnu build
   - ls -al
   # publish dotnet sdk docs using bash script (TBD)
