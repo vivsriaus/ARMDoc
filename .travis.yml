@@ -73,8 +73,12 @@ script:
   - dnu build
   - ls -al
   - cp -avr ../../../../tools/SandcastleARM.shfbproj bin/Debug/dnxcore50/SandcastleARM.shfbproj
-  - cp -avr ../../../../tools/Sandcastle ~/Sandcastle/
+  - cp -avr ../../../../tools/Sandcastle ~/Sandcastle
   - cp -avr ../../../../tools/SandcastleHelpFileBuilder ~/SandcastleHelpFileBuilder
+  - echo $DXROOT
+  - echo $SHFBROOT
+  - ls -al ~/Sandcastle
+  - ls -al ~/SandcastleHelpFileBuilder
   - cd bin/Debug/dnxcore50
   - xbuild SandcastleARM.shfbproj
   - find . -name '*.*'
