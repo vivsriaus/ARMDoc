@@ -87,6 +87,9 @@ script:
   - dnu list --details
   - dnu build
   - ls -al
+  - cd bin
+  - find . -name '*.*'
+  - cd ..
   # publish dotnet sdk docs using bash script (TBD)
   # generate swagger ui docs
   - cd ../../../../
